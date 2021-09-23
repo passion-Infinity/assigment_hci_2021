@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/ic_wave1"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="20dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/icon_laptop" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentRight="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Computer &amp; Laptop"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:layout_marginBottom="15dp"
+                android:textSize="25dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rental Services"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="15dp"
+                android:textSize="25dp"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_marginTop="40dp">
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="What do you need ?"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:layout_marginBottom="40dp"
+            android:textSize="25dp"/>
+
+        <TextView
+            android:id="@+id/txt_job"
+            android:layout_width="175dp"
+            android:layout_height="200dp"
+            android:layout_below="@+id/txtTitle"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/purpose_custom_1"
+            android:drawableTop="@drawable/icon_work"
+            android:gravity="center"
+            android:paddingTop="35dp"
+            android:paddingBottom="70dp"
+            android:text="For work"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/txt_study"
+            android:layout_below="@+id/txtTitle"
+            android:layout_width="175dp"
+            android:layout_height="200dp"
+            android:background="@drawable/purpose_custom_2"
+            android:drawableTop="@drawable/icon_study"
+            android:text="For Study"
+            android:gravity="center"
+            android:paddingBottom="70dp"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:paddingTop="35dp"
+            android:layout_alignParentRight="true"/>
+        <TextView
+            android:id="@+id/txt_game"
+            android:layout_below="@+id/txt_job"
+            android:layout_width="175dp"
+            android:layout_height="200dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/purpose_custom_3"
+            android:drawableTop="@drawable/icon_others"
+            android:text="Other"
+            android:gravity="center"
+            android:paddingBottom="70dp"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:paddingTop="35dp"/>
+        <TextView
+            android:id="@+id/txt_others"
+            android:layout_below="@+id/txt_job"
+            android:layout_width="175dp"
+            android:layout_height="200dp"
+            android:background="@drawable/purpose_custom_4"
+            android:drawableTop="@drawable/icon_game"
+            android:text="For game"
+            android:gravity="center"
+            android:paddingBottom="70dp"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:paddingTop="35dp"/>
+    </RelativeLayout>
+
+</LinearLayout>

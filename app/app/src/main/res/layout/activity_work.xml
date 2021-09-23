@@ -1,0 +1,679 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".WorkActivity">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_list1" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/icon_alert" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/slogan"
+        android:layout_below="@id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|left">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Let's enjoy our services"
+            android:textColor="#000"
+            android:textSize="22dp"
+            android:layout_marginLeft="20dp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/txtSearch"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:hint="Search laptop, pc,..."
+        android:drawableLeft="@drawable/icon_search1"
+        android:drawablePadding="8dp"
+        android:textSize="18dp"
+        android:textColor="#AAA5A5"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="26dp"
+        android:textStyle="bold"
+        android:background="@drawable/custom_input"
+        android:padding="10dp"/>
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:gravity="center"-->
+<!--        android:paddingBottom="20dp"-->
+<!--        android:layout_marginTop="20dp">-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="All"-->
+<!--            android:textSize="20dp"-->
+<!--            android:textColor="#EC3A77"-->
+<!--            android:textStyle="bold"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:padding="12dp"-->
+<!--            android:background="@drawable/custom_border_radius"-->
+<!--            android:layout_marginRight="10dp"/>-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Acer"-->
+<!--            android:textSize="20dp"-->
+<!--            android:textColor="#847F7F"-->
+<!--            android:textStyle="bold"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:layout_marginRight="10dp"/>-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Asus"-->
+<!--            android:textSize="20dp"-->
+<!--            android:textColor="#847F7F"-->
+<!--            android:textStyle="bold"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:layout_marginRight="10dp"/>-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Dell"-->
+<!--            android:textSize="20dp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textColor="#847F7F"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:layout_marginRight="10dp"/>-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="HP"-->
+<!--            android:textSize="20dp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textColor="#847F7F"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:layout_marginRight="10dp"/>-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Macbook"-->
+<!--            android:textSize="20dp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textColor="#847F7F"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:layout_marginRight="10dp"/>-->
+<!--    </LinearLayout>-->
+
+    <HorizontalScrollView
+        android:id="@+id/categories"
+        android:layout_below="@+id/txtSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="15dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="20dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:drawablePadding="5dp"
+                android:layout_marginRight="10dp"
+                android:drawableLeft="@drawable/icon_laptop4"
+                android:background="@drawable/custom_border_radius5"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:gravity="center"
+                android:layout_marginLeft="15dp"
+                android:drawableLeft="@drawable/ic_icon_acer"
+                android:drawablePadding="5dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:gravity="center"
+                android:layout_marginLeft="30dp"
+                android:drawableLeft="@drawable/ic_icon_asus"
+                android:drawablePadding="5dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:gravity="center"
+                android:drawableLeft="@drawable/ic_icon_dell"
+                android:drawablePadding="5dp"
+                android:layout_marginLeft="30dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:gravity="center"
+                android:drawableLeft="@drawable/ic_icon_hp"
+                android:drawablePadding="5dp"
+                android:layout_marginLeft="30dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:gravity="center"
+                android:drawableLeft="@drawable/ic_icon_apple"
+                android:drawablePadding="5dp"
+                android:layout_marginLeft="30dp"
+                />
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+
+    <ScrollView
+        android:id="@+id/main_content"
+        android:layout_below="@id/categories"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Accessory"-->
+<!--                android:textSize="20dp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textColor="#333"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:layout_marginLeft="10dp"/>-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:paddingLeft="35dp"-->
+<!--                android:paddingRight="15dp"-->
+<!--                android:paddingTop="10dp"-->
+<!--                android:paddingBottom="15dp">-->
+
+
+<!--                <ImageView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@drawable/ic_acc_pc"-->
+<!--                    android:layout_marginRight="50dp"/>-->
+<!--                <ImageView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginRight="50dp"-->
+<!--                    android:background="@drawable/ic_acc_phone1"/>-->
+<!--                <ImageView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginRight="50dp"-->
+<!--                    android:background="@drawable/ic_acc_laptop1"/>-->
+<!--                <ImageView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@drawable/ic_acc_keyboard"/>-->
+
+<!--            </LinearLayout>-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New"
+                android:textSize="20dp"
+                android:textColor="#333"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp">
+
+                <RelativeLayout
+                    android:layout_width="180dp"
+                    android:layout_height="220dp"
+                    android:background="@drawable/custom_border_radius1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="110dp"
+                        android:background="@drawable/custom_border_radius2"
+                        android:drawableRight="@drawable/icon_fire"
+                        android:paddingLeft="40dp"
+                        android:paddingTop="2dp"
+                        android:paddingRight="20dp"
+                        android:paddingBottom="5dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="20dp"
+                        android:text="Dell Gaming"
+                        android:textColor="#FCF5F5"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="140dp"
+                        android:layout_height="160dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="58dp"
+                        android:adjustViewBounds="true"
+                        android:background="@drawable/laptop_2" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/new_2"
+                    android:layout_width="190dp"
+                    android:layout_height="105dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/custom_border_radius3">
+
+                    <TextView
+                        android:id="@+id/textTitle1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingRight="10dp"
+                        android:text="Dell Lattitude"
+                        android:textColor="#fff"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Generation"
+                        android:textSize="14dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:layout_below="@id/textTitle1"
+                        android:textColor="#fff"
+                        android:textStyle="bold"/>
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="60dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/laptop_4" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="190dp"
+                    android:layout_height="105dp"
+                    android:layout_below="@+id/new_2"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/custom_border_radius4">
+                    <TextView
+                        android:id="@+id/textTitle2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingRight="10dp"
+                        android:text="Dell Lattitude"
+                        android:textColor="#fff"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Generation"
+                        android:textSize="14dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:layout_below="@id/textTitle2"
+                        android:textColor="#fff"
+                        android:textStyle="bold"/>
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="60dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/laptop_5" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Most Popular"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp">
+
+                <RelativeLayout
+                    android:id="@+id/mp_1"
+                    android:layout_width="180dp"
+                    android:layout_height="240dp"
+                    android:background="@drawable/custom_border_radius7">
+
+                    <TextView
+                        android:id="@+id/title1_mp1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="15dp"
+                        android:text="Dell Inspirasion"
+                        android:textColor="#FCF5F5"
+                        android:textSize="22dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/title1_mp1"
+                        android:layout_marginLeft="22dp"
+                        android:text="$15 per month"
+                        android:textColor="#fff"
+                        android:textSize="16dp" />
+
+                    <ImageView
+                        android:layout_width="140dp"
+                        android:layout_height="120dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="90dp"
+                        android:adjustViewBounds="true"
+                        android:background="@drawable/laptop_3" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_alignParentRight="true"
+                    android:layout_width="180dp"
+                    android:layout_height="240dp"
+                    android:background="@drawable/custom_border_radius7">
+
+                    <TextView
+                        android:id="@+id/title2_mp1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_marginTop="15dp"
+                        android:text="Macbook Pro"
+                        android:textColor="#FCF5F5"
+                        android:textSize="22dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_below="@id/title2_mp1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="$15 per month"
+                        android:gravity="center"
+                        android:textSize="16dp"
+                        android:textColor="#fff"
+                        />
+
+                    <ImageView
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="80dp"
+                        android:adjustViewBounds="true"
+                        android:background="@drawable/macbookpro" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Recommend"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15dp"
+                android:background="@drawable/custom_shadow"
+                android:paddingTop="10dp"
+                android:paddingBottom="3dp"
+                android:paddingLeft="15dp">
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:adjustViewBounds="true"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/laptop_1" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Asus TUF Gaming FX504"
+                    android:layout_marginLeft="115dp"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:textColor="#000"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="26dp"
+                    android:text="Full HD, USB 3.0, 8GRAM"
+                    android:layout_marginLeft="115dp"
+                    android:textSize="17dp"
+                    android:textColor="#6C6A6A"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="54dp"
+                    android:text="$108  per month"
+                    android:layout_marginLeft="115dp"
+                    android:textSize="16dp"
+                    android:textColor="#000"/>
+
+                <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="65dp"
+                    android:scaleX="0.5"
+                    android:scaleY="0.5"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15dp"
+                android:background="@drawable/custom_shadow"
+                android:paddingTop="10dp"
+                android:paddingBottom="3dp"
+                android:paddingLeft="15dp">
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:adjustViewBounds="true"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/laptop_1" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Asus TUF Gaming FX504"
+                    android:layout_marginLeft="115dp"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:textColor="#000"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="26dp"
+                    android:text="Full HD, USB 3.0, 8GRAM"
+                    android:layout_marginLeft="115dp"
+                    android:textSize="17dp"
+                    android:textColor="#6C6A6A"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="54dp"
+                    android:text="$108  per month"
+                    android:layout_marginLeft="115dp"
+                    android:textSize="16dp"
+                    android:textColor="#000"/>
+
+                <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="65dp"
+                    android:scaleX="0.5"
+                    android:scaleY="0.5"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15dp"
+                android:background="@drawable/custom_shadow"
+                android:paddingTop="10dp"
+                android:paddingBottom="3dp"
+                android:paddingLeft="15dp">
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:adjustViewBounds="true"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/laptop_1" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Asus TUF Gaming FX504"
+                    android:layout_marginLeft="115dp"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:textColor="#000"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="26dp"
+                    android:text="Full HD, USB 3.0, 8GRAM"
+                    android:layout_marginLeft="115dp"
+                    android:textSize="17dp"
+                    android:textColor="#6C6A6A"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="54dp"
+                    android:text="$108  per month"
+                    android:layout_marginLeft="115dp"
+                    android:textSize="16dp"
+                    android:textColor="#000"/>
+
+                <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="65dp"
+                    android:scaleX="0.5"
+                    android:scaleY="0.5"
+                    />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="See more"
+                android:textColor="#A29D9D"
+                android:gravity="center"
+                android:textSize="18dp"
+                android:padding="15dp"
+                android:clickable="true"
+                />
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:layout_below="@id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Popular"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_navigation_menu"
+        app:itemTextColor="#000"
+        app:itemIconTint="#000"
+        android:background="@drawable/custom_border_radius8"/>
+</RelativeLayout>
