@@ -165,7 +165,7 @@ export default class GetStarted extends React.Component {
                   </TouchableOpacity>
                   <TouchableOpacity
                     onPress={() => {
-                      this.props.navigation.replace('Home');
+                      this.props.navigation.replace('HomeTabNavigation');
                     }}>
                     <Text style={styles.btn_submit}>Submit</Text>
                   </TouchableOpacity>
@@ -187,7 +187,7 @@ export default class GetStarted extends React.Component {
         <TouchableOpacity
           style={styles.btn2}
           onPress={() => {
-            this.props.navigation.replace('Home');
+            this.props.navigation.replace('HomeTabNavigation');
           }}>
           <Text style={styles.text}>Đi đến trang chủ</Text>
         </TouchableOpacity>

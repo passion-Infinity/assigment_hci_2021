@@ -44,68 +44,93 @@ export default function Home() {
           />
         </View>
         <ScrollView>
+          <View style={styles.event_wrapper}>
+            <View style={styles.event_header}>
+              <Image
+                source={require('../assets/images/banner4.png')}
+                resizeMode="cover"
+                style={{
+                  width: 380,
+                  height: 180,
+                  borderRadius: 20,
+                  marginLeft: 6,
+                }}
+              />
+            </View>
+            <View style={styles.event_content}></View>
+          </View>
           <View style={styles.category}>
             {/* <ScrollView horizontal> */}
-            <View style={styles.category_wrapper}>
-              <View style={styles.category_item}>
-                <Pressable>
-                  <Image
-                    source={require('../assets/images/paint-palette64.png')}
-                  />
-                </Pressable>
+            <View>
+              <Text style={styles.product_title}>Bạn thuê máy cho việc?</Text>
+              <View style={styles.category_content}>
+                <View style={styles.category_wrapper}>
+                  <View style={styles.category_item}>
+                    <Pressable>
+                      <Image
+                        source={require('../assets/images/paint-palette64.png')}
+                      />
+                    </Pressable>
+                  </View>
+                  <Text style={styles.category_text}>Thiết kế</Text>
+                </View>
+                <View style={styles.category_wrapper}>
+                  <View style={styles.category_item}>
+                    <Pressable>
+                      <Image
+                        source={require('../assets/images/laptrinh64.png')}
+                      />
+                    </Pressable>
+                  </View>
+                  <Text style={styles.category_text}>Lập trình</Text>
+                </View>
+                <View style={styles.category_wrapper}>
+                  <View style={styles.category_item}>
+                    <Pressable>
+                      <Image
+                        source={require('../assets/images/student64.png')}
+                      />
+                    </Pressable>
+                  </View>
+                  <Text style={styles.category_text}>Học tập</Text>
+                </View>
+                <View style={styles.category_wrapper}>
+                  <View style={styles.category_item}>
+                    <Pressable>
+                      <Image source={require('../assets/images/game64.png')} />
+                    </Pressable>
+                  </View>
+                  <Text style={styles.category_text}>Chơi game</Text>
+                </View>
+                <View style={styles.category_wrapper}>
+                  <View style={styles.category_item}>
+                    <Pressable>
+                      <Image source={require('../assets/images/relax64.png')} />
+                    </Pressable>
+                  </View>
+                  <Text style={styles.category_text}>Văn phòng</Text>
+                </View>
+                <View style={styles.category_wrapper}>
+                  <View style={styles.category_item}>
+                    <Pressable>
+                      <Image
+                        source={require('../assets/images/chuyennghiep64.png')}
+                      />
+                    </Pressable>
+                  </View>
+                  <Text style={styles.category_text}>Lập trình</Text>
+                </View>
+                <View style={styles.category_wrapper}>
+                  <View style={styles.category_item}>
+                    <Pressable>
+                      <Image source={require('../assets/images/other32.png')} />
+                    </Pressable>
+                  </View>
+                  <Text style={styles.category_text}>Khác</Text>
+                </View>
               </View>
-              <Text style={styles.category_text}>Thiết kế</Text>
             </View>
-            <View style={styles.category_wrapper}>
-              <View style={styles.category_item}>
-                <Pressable>
-                  <Image source={require('../assets/images/laptrinh64.png')} />
-                </Pressable>
-              </View>
-              <Text style={styles.category_text}>Lập trình</Text>
-            </View>
-            <View style={styles.category_wrapper}>
-              <View style={styles.category_item}>
-                <Pressable>
-                  <Image source={require('../assets/images/student64.png')} />
-                </Pressable>
-              </View>
-              <Text style={styles.category_text}>Học tập</Text>
-            </View>
-            <View style={styles.category_wrapper}>
-              <View style={styles.category_item}>
-                <Pressable>
-                  <Image source={require('../assets/images/game64.png')} />
-                </Pressable>
-              </View>
-              <Text style={styles.category_text}>Chơi game</Text>
-            </View>
-            <View style={styles.category_wrapper}>
-              <View style={styles.category_item}>
-                <Pressable>
-                  <Image source={require('../assets/images/relax64.png')} />
-                </Pressable>
-              </View>
-              <Text style={styles.category_text}>Văn phòng</Text>
-            </View>
-            <View style={styles.category_wrapper}>
-              <View style={styles.category_item}>
-                <Pressable>
-                  <Image
-                    source={require('../assets/images/chuyennghiep64.png')}
-                  />
-                </Pressable>
-              </View>
-              <Text style={styles.category_text}>Lập trình</Text>
-            </View>
-            <View style={styles.category_wrapper}>
-              <View style={styles.category_item}>
-                <Pressable>
-                  <Image source={require('../assets/images/other32.png')} />
-                </Pressable>
-              </View>
-              <Text style={styles.category_text}>Khác</Text>
-            </View>
+
             {/* </ScrollView> */}
           </View>
 
@@ -156,6 +181,10 @@ export default function Home() {
                   <Text style={styles.popular_item_price}>
                     5.000.000 đ/tháng
                   </Text>
+                  <Text style={styles.popular_item_sale}>
+                    <FontAwesome5 name={'fire'} size={22} color="#ff5121" />
+                    Giảm 20% khi thuê trong 6 tháng liên tiếp
+                  </Text>
                 </View>
                 <Image
                   source={require('../assets/images/popular_product1.png')}
@@ -163,7 +192,25 @@ export default function Home() {
                   resizeMode="contain"
                 />
               </View>
-              <View style={styles.popular_item}></View>
+              <View style={styles.popular_item}>
+                <View popular_item_content>
+                  <Text style={styles.popular_item_name}>
+                    Macbook Pro max 2019
+                  </Text>
+                  <Text style={styles.popular_item_price}>
+                    5.000.000 đ/tháng
+                  </Text>
+                  <Text style={styles.popular_item_sale}>
+                    <FontAwesome5 name={'fire'} size={22} color="#ff5121" />
+                    Giảm 20% khi thuê trong 6 tháng liên tiếp
+                  </Text>
+                </View>
+                <Image
+                  source={require('../assets/images/popular_product1.png')}
+                  style={styles.popular_img}
+                  resizeMode="contain"
+                />
+              </View>
             </ScrollView>
           </View>
         </ScrollView>
@@ -178,11 +225,11 @@ const styles = StyleSheet.create({
   },
   header: {
     paddingTop: 15,
-    paddingBottom: 60,
+    paddingBottom: 80,
     paddingHorizontal: 15,
     backgroundColor: '#ffca28',
-    borderBottomLeftRadius: 40,
-    borderBottomRightRadius: 40,
+    borderBottomLeftRadius: 60,
+    borderBottomRightRadius: 60,
   },
   header_top: {
     flexDirection: 'row',
@@ -201,8 +248,7 @@ const styles = StyleSheet.create({
   main_content: {
     flex: 1,
     paddingHorizontal: 10,
-    marginTop: 30,
-    marginBottom: 30,
+    marginBottom: 20,
     backgroundColor: '#eeeeee',
   },
   search_wrapper: {
@@ -210,7 +256,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingBottom: 30,
+    top: -20,
   },
   icon_search: {
     position: 'absolute',
@@ -230,13 +276,18 @@ const styles = StyleSheet.create({
     color: '#000',
     backgroundColor: '#fff',
   },
+  event_wrapper: {
+    marginBottom: 20,
+  },
   category: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
     paddingLeft: 10,
     backgroundColor: '#fff',
     paddingBottom: 15,
     borderRadius: 10,
+  },
+  category_content: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
   },
   category_wrapper: {
     alignItems: 'center',
@@ -330,7 +381,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: '#fff',
     paddingHorizontal: 10,
-    marginTop: 15,
+    marginTop: 30,
     marginRight: 15,
     borderRadius: 10,
     borderBottomWidth: 6,
@@ -355,18 +406,24 @@ const styles = StyleSheet.create({
   popular_item_name: {
     width: 150,
     fontSize: 20,
-    fontWeight: '600',
-    marginTop: 15,
+    fontWeight: '500',
+    marginTop: 40,
     paddingLeft: 10,
     paddingRight: 15,
   },
   popular_item_price: {
     paddingLeft: 10,
-    marginTop: 10,
     fontSize: 16,
-    fontWeight: '500',
+    marginTop: 3,
+  },
+  popular_item_sale: {
+    width: 150,
+    paddingLeft: 10,
+    color: '#999',
+    fontSize: 18,
+    marginTop: 10,
   },
   popular_scro: {
-    paddingBottom: 20,
+    paddingBottom: 10,
   },
 });
