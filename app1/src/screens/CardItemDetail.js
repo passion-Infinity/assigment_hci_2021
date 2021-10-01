@@ -1,10 +1,10 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 
-export default function Chat() {
+export default function CardItemDetail() {
   return (
     <View style={styles.container}>
-      <Text>Announcement screen</Text>
+      <Text>Detail Screen</Text>
     </View>
   );
 }

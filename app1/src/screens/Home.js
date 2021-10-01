@@ -11,9 +11,17 @@ import {
 } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-export default function Home() {
+export default function Home({navigation}) {
   return (
     <View style={styles.container}>
+      <Image
+        style={{
+          position: 'absolute',
+          width: '100%',
+          height: 200,
+        }}
+        source={require('../assets/images/bgheaderwave.jpg')}
+      />
       <View style={styles.header}>
         <View style={styles.header_top}>
           <Pressable>
@@ -66,7 +74,12 @@ export default function Home() {
               <View style={styles.category_content}>
                 <View style={styles.category_wrapper}>
                   <View style={styles.category_item}>
-                    <Pressable>
+                    <Pressable
+                      onPress={() =>
+                        navigation.navigate('CardItemList', {
+                          title: 'Máy tính cho công việc thiết kế',
+                        })
+                      }>
                       <Image
                         source={require('../assets/images/paint-palette64.png')}
                       />
@@ -225,11 +238,12 @@ const styles = StyleSheet.create({
   },
   header: {
     paddingTop: 15,
-    paddingBottom: 80,
+    paddingBottom: 100,
     paddingHorizontal: 15,
     backgroundColor: '#ffca28',
-    borderBottomLeftRadius: 60,
-    borderBottomRightRadius: 60,
+    // borderBottomLeftRadius: 60,
+    // borderBottomRightRadius: 60,
+    opacity: 0.9,
   },
   header_top: {
     flexDirection: 'row',
@@ -248,8 +262,12 @@ const styles = StyleSheet.create({
   main_content: {
     flex: 1,
     paddingHorizontal: 10,
-    marginBottom: 20,
+    marginBottom: 10,
     backgroundColor: '#eeeeee',
+    borderTopLeftRadius: 40,
+    borderTopRightRadius: 40,
+    position: 'relative',
+    top: -50,
   },
   search_wrapper: {
     position: 'relative',
