@@ -5,28 +5,28 @@ import StarRating from './StarRating';
 
 const Card = ({itemData, onPress}) => {
   return (
-    <TouchableOpacity onPress={onPress}>
-      <View style={styles.card}>
-        <View style={styles.cardImgWrapper}>
-          <Image
-            source={itemData.image}
-            resizeMode="cover"
-            style={styles.cardImg}
-          />
-        </View>
-        <View style={styles.cardInfo}>
-          <Text style={styles.cardTitle}>{itemData.title}</Text>
-          {/* <StarRating ratings={itemData.ratings} reviews={itemData.reviews} /> */}
-          <Text numberOfLines={2} style={styles.cardDetails}>
-            {itemData.description}
-          </Text>
-          <Text style={styles.price}>${itemData.price}/month</Text>
-          <TouchableOpacity>
-            <Text style={styles.btn}>Details</Text>
-          </TouchableOpacity>
-        </View>
+    // <TouchableOpacity onPress={onPress}>
+    <View style={styles.card}>
+      <View style={styles.cardImgWrapper}>
+        <Image
+          source={itemData.image}
+          resizeMode="cover"
+          style={styles.cardImg}
+        />
       </View>
-    </TouchableOpacity>
+      <View style={styles.cardInfo}>
+        <Text style={styles.cardTitle}>{itemData.title}</Text>
+        {/* <StarRating ratings={itemData.ratings} reviews={itemData.reviews} /> */}
+        <Text numberOfLines={2} style={styles.cardDetails}>
+          {itemData.description}
+        </Text>
+        <Text style={styles.price}>${itemData.price}/month</Text>
+        <TouchableOpacity onPress={onPress}>
+          <Text style={styles.btn}>Details</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+    // </TouchableOpacity>
   );
 };
 
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.8,
     shadowRadius: 3.84,
     elevation: 5,
-    borderRadius: 30,
+    borderRadius: 20,
   },
   cardImgWrapper: {
     flex: 1,
@@ -69,8 +69,8 @@ const styles = StyleSheet.create({
     flex: 2,
     padding: 10,
     backgroundColor: '#fff',
-    borderTopRightRadius: 30,
-    borderBottomRightRadius: 30,
+    borderTopRightRadius: 20,
+    borderBottomRightRadius: 20,
   },
   cardTitle: {
     fontWeight: 'bold',
@@ -90,9 +90,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     top: 17,
-    right: -115,
-    borderBottomRightRadius: 30,
-    borderTopLeftRadius: 30,
+    right: -110,
+    borderBottomRightRadius: 20,
+    borderTopLeftRadius: 20,
   },
   price: {
     position: 'absolute',

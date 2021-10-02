@@ -11,6 +11,8 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import GetStarted from './screens/GetStarted';
 import CardItemList from './screens/CardItemList';
+import CardItemDetail from './screens/CardItemDetail';
+import CalendarsScreen from './screens/Calendar';
 import Splash from './Splash';
 import HomeTabNavigation from './screens/HomeTabNavigation';
 import {Image, Text, View} from 'react-native';
@@ -51,6 +53,24 @@ export default function App() {
             // title: route.params.title,
             headerShown: false,
             // headerBackTitleVisible: false,
+          })}
+        />
+        <Stack.Screen
+          name="Calendar"
+          component={CalendarsScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="CardItemDetail"
+          component={CardItemDetail}
+          options={({route}) => ({
+            // headerBackTitleVisible: false,
+            // headerTitle: false,
+            // headerTransparent: true,
+            // headerTintColor: '#fff',
+            headerShown: false,
           })}
         />
       </Stack.Navigator>
