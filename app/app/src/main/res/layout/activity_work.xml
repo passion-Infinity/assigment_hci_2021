@@ -15,12 +15,15 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/icon_list1" />
+            android:background="@drawable/icon_list1"
+            android:contentDescription="TODO" />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:background="@drawable/icon_alert" />
+            android:background="@drawable/icon_alert"
+            android:contentDescription="TODO"
+            android:layout_alignParentEnd="true" />
     </RelativeLayout>
 
     <LinearLayout
@@ -32,12 +35,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Let's enjoy our services"
+            android:maxWidth="280dp"
+            android:text="@string/get_the_right_devices_for_you"
             android:textColor="#000"
-            android:textSize="22dp"
+            android:textSize="25sp"
             android:layout_marginLeft="20dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:layout_marginStart="20dp" />
     </LinearLayout>
 
     <EditText
@@ -45,169 +49,208 @@
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/header"
-        android:hint="Search laptop, pc,..."
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/custom_input"
         android:drawableLeft="@drawable/icon_search1"
         android:drawablePadding="8dp"
-        android:textSize="18dp"
+        android:hint="Search laptop, pc,..."
+        android:minHeight="48dp"
+        android:padding="10dp"
         android:textColor="#AAA5A5"
-        android:layout_marginTop="35dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="26dp"
+        android:textSize="18dp"
         android:textStyle="bold"
-        android:background="@drawable/custom_input"
-        android:padding="10dp"/>
-
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="horizontal"-->
-<!--        android:gravity="center"-->
-<!--        android:paddingBottom="20dp"-->
-<!--        android:layout_marginTop="20dp">-->
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="All"-->
-<!--            android:textSize="20dp"-->
-<!--            android:textColor="#EC3A77"-->
-<!--            android:textStyle="bold"-->
-<!--            android:layout_marginLeft="10dp"-->
-<!--            android:padding="12dp"-->
-<!--            android:background="@drawable/custom_border_radius"-->
-<!--            android:layout_marginRight="10dp"/>-->
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Acer"-->
-<!--            android:textSize="20dp"-->
-<!--            android:textColor="#847F7F"-->
-<!--            android:textStyle="bold"-->
-<!--            android:layout_marginLeft="10dp"-->
-<!--            android:layout_marginRight="10dp"/>-->
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Asus"-->
-<!--            android:textSize="20dp"-->
-<!--            android:textColor="#847F7F"-->
-<!--            android:textStyle="bold"-->
-<!--            android:layout_marginLeft="10dp"-->
-<!--            android:layout_marginRight="10dp"/>-->
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Dell"-->
-<!--            android:textSize="20dp"-->
-<!--            android:textStyle="bold"-->
-<!--            android:textColor="#847F7F"-->
-<!--            android:layout_marginLeft="10dp"-->
-<!--            android:layout_marginRight="10dp"/>-->
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="HP"-->
-<!--            android:textSize="20dp"-->
-<!--            android:textStyle="bold"-->
-<!--            android:textColor="#847F7F"-->
-<!--            android:layout_marginLeft="10dp"-->
-<!--            android:layout_marginRight="10dp"/>-->
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Macbook"-->
-<!--            android:textSize="20dp"-->
-<!--            android:textStyle="bold"-->
-<!--            android:textColor="#847F7F"-->
-<!--            android:layout_marginLeft="10dp"-->
-<!--            android:layout_marginRight="10dp"/>-->
-<!--    </LinearLayout>-->
+        android:inputType="text"
+        android:drawableStart="@drawable/icon_search1" />
 
     <HorizontalScrollView
         android:id="@+id/categories"
-        android:layout_below="@+id/txtSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp">
+        android:layout_below="@+id/txtSearch"
+        android:layout_marginTop="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingLeft="10dp"
-            android:paddingRight="15dp"
             android:paddingTop="10dp"
+            android:paddingRight="15dp"
             android:paddingBottom="20dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="All"
-                android:textSize="18dp"
-                android:textStyle="bold"
-                android:textColor="#fff"
-                android:gravity="center"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:paddingLeft="30dp"
-                android:paddingRight="30dp"
-                android:drawablePadding="5dp"
-                android:layout_marginRight="10dp"
-                android:drawableLeft="@drawable/icon_laptop4"
-                android:background="@drawable/custom_border_radius5"
-                />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textColor="#000"
-                android:gravity="center"
-                android:layout_marginLeft="15dp"
-                android:drawableLeft="@drawable/ic_icon_acer"
-                android:drawablePadding="5dp"
-                />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginRight="10dp"-->
+<!--                android:background="@drawable/custom_border_radius5"-->
+<!--                android:drawableLeft="@drawable/icon_laptop4"-->
+<!--                android:drawablePadding="5dp"-->
+<!--                android:gravity="center"-->
+<!--                android:paddingLeft="30dp"-->
+<!--                android:paddingTop="10dp"-->
+<!--                android:paddingRight="30dp"-->
+<!--                android:paddingBottom="10dp"-->
+<!--                android:text="All"-->
+<!--                android:textColor="#fff"-->
+<!--                android:textSize="18dp"-->
+<!--                android:textStyle="bold" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textColor="#000"
-                android:gravity="center"
-                android:layout_marginLeft="30dp"
-                android:drawableLeft="@drawable/ic_icon_asus"
-                android:drawablePadding="5dp"
-                />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="15dp"-->
+<!--                android:drawableLeft="@drawable/ic_icon_acer"-->
+<!--                android:drawablePadding="5dp"-->
+<!--                android:gravity="center"-->
+<!--                android:textColor="#000"-->
+<!--                android:textStyle="bold" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textColor="#000"
-                android:gravity="center"
-                android:drawableLeft="@drawable/ic_icon_dell"
-                android:drawablePadding="5dp"
-                android:layout_marginLeft="30dp"
-                />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="30dp"-->
+<!--                android:drawableLeft="@drawable/ic_icon_asus"-->
+<!--                android:drawablePadding="5dp"-->
+<!--                android:gravity="center"-->
+<!--                android:textColor="#000"-->
+<!--                android:textStyle="bold" />-->
 
-            <TextView
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="30dp"-->
+<!--                android:drawableLeft="@drawable/ic_icon_dell"-->
+<!--                android:drawablePadding="5dp"-->
+<!--                android:gravity="center"-->
+<!--                android:textColor="#000"-->
+<!--                android:textStyle="bold" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="30dp"-->
+<!--                android:drawableLeft="@drawable/ic_icon_hp"-->
+<!--                android:drawablePadding="5dp"-->
+<!--                android:gravity="center"-->
+<!--                android:textColor="#000"-->
+<!--                android:textStyle="bold" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="30dp"-->
+<!--                android:drawableLeft="@drawable/ic_icon_apple"-->
+<!--                android:drawablePadding="5dp"-->
+<!--                android:gravity="center"-->
+<!--                android:textColor="#000"-->
+<!--                android:textStyle="bold" />-->
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textColor="#000"
-                android:gravity="center"
-                android:drawableLeft="@drawable/ic_icon_hp"
-                android:drawablePadding="5dp"
-                android:layout_marginLeft="30dp"
-                />
-            <TextView
+                android:orientation="vertical"
+                android:layout_marginRight="30dp"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_icon_design"
+                    android:padding="15dp"
+                    android:background="@drawable/custom_border_ic_design"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Design"
+                    android:textSize="16dp"
+                    android:textColor="#000"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textColor="#000"
-                android:gravity="center"
-                android:drawableLeft="@drawable/ic_icon_apple"
-                android:drawablePadding="5dp"
-                android:layout_marginLeft="30dp"
-                />
+                android:orientation="vertical"
+                android:layout_marginRight="30dp"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_icon_game"
+                    android:padding="15dp"
+                    android:background="@drawable/custom_border_ic_game"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Game"
+                    android:textSize="16dp"
+                    android:textColor="#000"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginRight="30dp"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_icon_job"
+                    android:padding="15dp"
+                    android:background="@drawable/custom_border_ic_job"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Work"
+                    android:textSize="16dp"
+                    android:textColor="#000"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginRight="30dp"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_icon_school3"
+                    android:padding="15dp"
+                    android:background="@drawable/custom_border_ic_school"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="School"
+                    android:textSize="16dp"
+                    android:textColor="#000"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginRight="30dp"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_icon_other"
+                    android:padding="15dp"
+                    android:background="@drawable/custom_border_ic_other"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Other"
+                    android:textSize="16dp"
+                    android:textColor="#000"
+                    />
+            </LinearLayout>
+
         </LinearLayout>
 
     </HorizontalScrollView>
@@ -333,7 +376,7 @@
                         android:paddingTop="5dp"
                         android:paddingRight="10dp"
                         android:text="Dell Lattitude"
-                        android:textColor="#fff"
+                        android:textColor="#009688"
                         android:textSize="18dp"
                         android:textStyle="bold" />
 
@@ -364,6 +407,7 @@
                     android:layout_below="@+id/new_2"
                     android:layout_alignParentRight="true"
                     android:background="@drawable/custom_border_radius4">
+
                     <TextView
                         android:id="@+id/textTitle2"
                         android:layout_width="match_parent"
@@ -372,7 +416,7 @@
                         android:paddingTop="5dp"
                         android:paddingRight="10dp"
                         android:text="Dell Lattitude"
-                        android:textColor="#fff"
+                        android:textColor="#F06292"
                         android:textSize="18dp"
                         android:textStyle="bold" />
 

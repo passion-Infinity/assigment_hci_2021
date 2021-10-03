@@ -10,113 +10,85 @@ export const data = [
   {
     id: '1',
     price: 18,
-    coordinate: {
-      latitude: 22.6293867,
-      longitude: 88.4354486,
-    },
+    cost: 25,
     title: 'Amazing Food Place',
-    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque est metus, gravida vel ex volutpat, posuere euismod tortor. Pellentesque tincidunt, mi ac varius blandit, quam orci dignissim risus, vitae rutrum orci urna ut neque.
-      
-      Pellentesque condimentum ut libero id blandit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.`,
+    description: ``,
+    saleInfo: 'Khuyến mãi đến 30% khi thuê liên tục trong 6 tháng',
     image: Images[0].image,
     rating: 4,
     reviews: 99,
-    categories: ['Restaurant', 'Hotel', 'Dineout'],
+    aims: ['Restaurant', 'Hotel', 'Dineout'],
   },
   {
     id: '2',
     price: 18,
-    coordinate: {
-      latitude: 22.6345648,
-      longitude: 88.4377279,
-    },
+    cost: 25,
     title: 'Second Amazing Food Place',
-    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque est metus, gravida vel ex volutpat, posuere euismod tortor. Pellentesque tincidunt, mi ac varius blandit, quam orci dignissim risus, vitae rutrum orci urna ut neque.
-      
-      Pellentesque condimentum ut libero id blandit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.`,
+    description: ``,
+    saleInfo: `Khuyến mãi đến 30% khi thuê liên tục trong 6 tháng`,
     image: Images[1].image,
     rating: 5,
     reviews: 102,
-    categories: ['Restaurant', 'Fastfood Center', 'Snacks Corner'],
+    aims: ['Restaurant', 'Fastfood Center', 'Snacks Corner'],
   },
   {
     id: '3',
     price: 18,
-    coordinate: {
-      latitude: 22.6281662,
-      longitude: 88.4410113,
-    },
+    cost: 25,
     title: 'Third Amazing Food Place',
-    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque est metus, gravida vel ex volutpat, posuere euismod tortor. Pellentesque tincidunt, mi ac varius blandit, quam orci dignissim risus, vitae rutrum orci urna ut neque.
-      
-      Pellentesque condimentum ut libero id blandit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.`,
+    description: ``,
+    saleInfo: `Khuyến mãi đến 30% khi thuê liên tục trong 6 tháng`,
     image: Images[2].image,
     rating: 3,
     reviews: 220,
-    categories: ['Restaurant', 'Hotel', 'Dineout'],
+    aims: ['Restaurant', 'Hotel', 'Dineout'],
   },
   {
     id: '4',
     price: 18,
-    coordinate: {
-      latitude: 22.6341137,
-      longitude: 88.4497463,
-    },
+    cost: 25,
     title: 'Fourth Amazing Food Place',
-    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque est metus, gravida vel ex volutpat, posuere euismod tortor. Pellentesque tincidunt, mi ac varius blandit, quam orci dignissim risus, vitae rutrum orci urna ut neque.
-      
-      Pellentesque condimentum ut libero id blandit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.`,
+    description: ``,
+    saleInfo: `Khuyến mãi đến 30% khi thuê liên tục trong 6 tháng`,
     image: Images[3].image,
     rating: 4,
     reviews: 48,
-    categories: ['Restaurant', 'Fastfood Center', 'Snacks Corner'],
+    aims: ['Restaurant', 'Fastfood Center', 'Snacks Corner'],
   },
   {
     id: '5',
     price: 18,
-    coordinate: {
-      latitude: 22.6292757,
-      longitude: 88.444781,
-    },
+    cost: 25,
     title: 'Fifth Amazing Food Place',
-    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque est metus, gravida vel ex volutpat, posuere euismod tortor. Pellentesque tincidunt, mi ac varius blandit, quam orci dignissim risus, vitae rutrum orci urna ut neque.
-      
-      Pellentesque condimentum ut libero id blandit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.`,
+    description: ``,
+    saleInfo: `Khuyến mãi đến 30% khi thuê liên tục trong 6 tháng`,
     image: Images[4].image,
     rating: 4,
     reviews: 178,
-    categories: ['Restaurant', 'Hotel', 'Dineout'],
+    aims: ['Restaurant', 'Hotel', 'Dineout'],
   },
   {
     id: '6',
     price: 18,
-    coordinate: {
-      latitude: 22.6293867,
-      longitude: 88.4354486,
-    },
+    cost: 25,
     title: 'Amazing Food Place',
-    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque est metus, gravida vel ex volutpat, posuere euismod tortor. Pellentesque tincidunt, mi ac varius blandit, quam orci dignissim risus, vitae rutrum orci urna ut neque.
-      
-      Pellentesque condimentum ut libero id blandit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.`,
+    description: ``,
+    saleInfo: `Khuyến mãi đến 30% khi thuê liên tục trong 6 tháng`,
     image: Images[0].image,
     rating: 4,
     reviews: 99,
-    categories: ['Restaurant', 'Hotel', 'Dineout'],
+    aims: ['Restaurant', 'Hotel', 'Dineout'],
   },
   {
     id: '7',
     price: 18,
-    coordinate: {
-      latitude: 22.6345648,
-      longitude: 88.4377279,
-    },
+    cost: 25,
     title: 'Second Amazing Food Place',
-    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque est metus, gravida vel ex volutpat, posuere euismod tortor. Pellentesque tincidunt, mi ac varius blandit, quam orci dignissim risus, vitae rutrum orci urna ut neque.
-      
-      Pellentesque condimentum ut libero id blandit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.`,
+    description: ``,
+    saleInfo: `Khuyến mãi đến 30% khi thuê liên tục trong 6 tháng`,
     image: Images[1].image,
     rating: 5,
     reviews: 102,
-    categories: ['Restaurant', 'Fastfood Center', 'Snacks Corner'],
+    aims: ['Restaurant', 'Fastfood Center', 'Snacks Corner'],
   },
 ];

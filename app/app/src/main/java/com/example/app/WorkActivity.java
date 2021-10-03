@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ScrollView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -35,5 +36,8 @@ public class WorkActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        ScrollView scrollView = findViewById(R.id.main_content);
+        scrollView.setOnTouchListener(new TranslateAnimation(this, navigationView));
     }
 }
