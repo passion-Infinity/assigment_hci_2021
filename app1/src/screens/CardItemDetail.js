@@ -73,10 +73,13 @@ export default function CardItemDetail({route}) {
               paddingBottom: 3,
               alignItems: 'center',
             }}>
-            <Text style={styles.price}>${itemData.price} / month</Text>
-            <Text style={styles.cost}>${itemData.cost} / month</Text>
+            <Text style={styles.price}>${itemData.price} </Text>
+            <Text style={styles.cost}>${itemData.cost}</Text>
           </View>
-          <Text style={styles.sale_info}>{itemData.saleInfo}</Text>
+          <Text style={styles.sale_info}>
+            Áp dụng khuyến mãi {itemData.month6.percent} khi thuê liên tục trong
+            6 tháng
+          </Text>
         </TriggeringView>
         <View style={styles.main_content}>
           <View style={[styles.sectionLarge]}>
@@ -93,11 +96,13 @@ export default function CardItemDetail({route}) {
                   paddingRight: 15,
                   marginTop: 3,
                 }}>
-                <Text style={styles.infomation_detail}>Giá: 300.000</Text>
+                <Text style={styles.infomation_detail}>
+                  Giá: {itemData.price}
+                </Text>
               </View>
             </View>
             <View style={[styles.infomation_wrapper]}>
-              <Text style={styles.infomation_title}>1 Tuần</Text>
+              <Text style={styles.infomation_title}>{itemData.week.name}</Text>
               <View
                 style={{
                   flexDirection: 'row',
@@ -106,15 +111,19 @@ export default function CardItemDetail({route}) {
                   paddingRight: 15,
                   marginTop: 3,
                 }}>
-                <Text style={styles.infomation_detail}>Giá: 300.000</Text>
+                <Text style={styles.infomation_detail}>
+                  Giá: {itemData.week.price}
+                </Text>
                 <Text style={{color: 'red', fontWeight: '500'}}>
-                  Áp dụng khuyến mãi giảm 5%
+                  {itemData.week.content} {itemData.week.percent}
                 </Text>
               </View>
             </View>
             <View
               style={[styles.infomation_wrapper, styles.infomation_highlight]}>
-              <Text style={styles.infomation_title}>1 Tháng</Text>
+              <Text style={styles.infomation_title}>
+                {itemData.month1.name}
+              </Text>
               <View
                 style={{
                   flexDirection: 'row',
@@ -123,14 +132,18 @@ export default function CardItemDetail({route}) {
                   paddingRight: 15,
                   marginTop: 3,
                 }}>
-                <Text style={styles.infomation_detail}>Giá: 300.000</Text>
+                <Text style={styles.infomation_detail}>
+                  Giá: {itemData.month1.price}
+                </Text>
                 <Text style={{color: 'red', fontWeight: '500'}}>
-                  Áp dụng khuyến mãi giảm 10%
+                  {itemData.month1.content} {itemData.month1.percent}
                 </Text>
               </View>
             </View>
             <View style={[styles.infomation_wrapper]}>
-              <Text style={styles.infomation_title}>3 Tháng</Text>
+              <Text style={styles.infomation_title}>
+                {itemData.month3.name}
+              </Text>
               <View
                 style={{
                   flexDirection: 'row',
@@ -139,15 +152,19 @@ export default function CardItemDetail({route}) {
                   paddingRight: 15,
                   marginTop: 3,
                 }}>
-                <Text style={styles.infomation_detail}>Giá: 300.000</Text>
+                <Text style={styles.infomation_detail}>
+                  Giá: {itemData.month3.price}
+                </Text>
                 <Text style={{color: 'red', fontWeight: '500'}}>
-                  Áp dụng khuyến mãi giảm 15%
+                  {itemData.month3.content} {itemData.month3.percent}
                 </Text>
               </View>
             </View>
             <View
               style={[styles.infomation_wrapper, styles.infomation_highlight]}>
-              <Text style={styles.infomation_title}>6 Tháng</Text>
+              <Text style={styles.infomation_title}>
+                {itemData.month6.name}
+              </Text>
               <View
                 style={{
                   flexDirection: 'row',
@@ -156,9 +173,11 @@ export default function CardItemDetail({route}) {
                   paddingRight: 15,
                   marginTop: 3,
                 }}>
-                <Text style={styles.infomation_detail}>Giá: 300.000</Text>
+                <Text style={styles.infomation_detail}>
+                  Giá: {itemData.month6.price}
+                </Text>
                 <Text style={{color: 'red', fontWeight: '500'}}>
-                  Áp dụng khuyến mãi giảm 30%
+                  {itemData.month6.content} {itemData.month6.percent}
                 </Text>
               </View>
             </View>
@@ -172,15 +191,11 @@ export default function CardItemDetail({route}) {
                 styles.infomation_highlight,
               ]}>
               <Text style={styles.information_device_name}>CPU:</Text>
-              <Text style={styles.information_device_desc}>
-                i5, 1135G7, 2.4GHz
-              </Text>
+              <Text style={styles.information_device_desc}>{itemData.cpu}</Text>
             </View>
             <View style={[styles.information_device_wrapper]}>
               <Text style={styles.information_device_name}>RAM:</Text>
-              <Text style={styles.information_device_desc}>
-                i5, 1135G7, 2.4GHz, ke fasdfasdf fasdfasdfasdf fasdfsdaf
-              </Text>
+              <Text style={styles.information_device_desc}>{itemData.ram}</Text>
             </View>
             <View
               style={[
@@ -189,13 +204,13 @@ export default function CardItemDetail({route}) {
               ]}>
               <Text style={styles.information_device_name}>Ổ cứng:</Text>
               <Text style={styles.information_device_desc}>
-                i5, 1135G7, 2.4GHz, ke fasdfasdf fasdfasdfasdf fasdfsdaf
+                {itemData.hardDisk}
               </Text>
             </View>
             <View style={[styles.information_device_wrapper]}>
               <Text style={styles.information_device_name}>Màn hình:</Text>
               <Text style={styles.information_device_desc}>
-                i5, 1135G7, 2.4GHz, ke fasdfasdf fasdfasdfasdf fasdfsdaf
+                {itemData.screen}
               </Text>
             </View>
           </View>

@@ -13,12 +13,15 @@ import {
 } from 'react-native';
 import {data} from '../models/data';
 import {brand} from '../models/brand';
+import {products} from '../models/products';
 import Card from '../components/Card';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {priceSelection} from '../models/priceSelection';
 import CalendarsScreen from './Calendar';
 
 export default function CardItemList({navigation, route}) {
+  const category = route.params.category;
+  const dataFilter = products.filter(value => value.category === category);
   const renderItem = ({item}) => {
     return (
       <Card
@@ -173,13 +176,13 @@ export default function CardItemList({navigation, route}) {
               marginLeft: 20,
               color: '#333',
             }}>
-            Choose a Device
+            Chọn thiết bị
           </Text>
         </View>
         <FontAwesome5 name={'search'} size={22} color="#999" />
       </View>
       <View style={styles.category}>
-        <Text style={styles.title}>Brand</Text>
+        <Text style={styles.title}>Nhãn hiệu</Text>
         <View style={styles.brand_list}>
           <FlatList
             keyExtractor={item => item.id.toString()}
@@ -203,7 +206,7 @@ export default function CardItemList({navigation, route}) {
         </View>
       </View>
       <View style={styles.filter}>
-        <Text style={styles.title}>Availiable Devices</Text>
+        <Text style={styles.title}>Thiết bị khả dụng</Text>
         <Pressable
           onPress={() => {
             setModalVisible(true);
@@ -213,7 +216,7 @@ export default function CardItemList({navigation, route}) {
       </View>
       <View style={styles.body}>
         <FlatList
-          data={data}
+          data={dataFilter}
           renderItem={renderItem}
           keyExtractor={item => item.id}
         />

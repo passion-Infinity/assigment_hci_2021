@@ -14,6 +14,7 @@ import CardItemList from './screens/CardItemList';
 import CardItemDetail from './screens/CardItemDetail';
 import CalendarsScreen from './screens/Calendar';
 import Splash from './Splash';
+import Login from './screens/Login';
 import HomeTabNavigation from './screens/HomeTabNavigation';
 import {Image, Text, View} from 'react-native';
 
@@ -72,6 +73,13 @@ export default function App() {
             // headerTintColor: '#fff',
             headerShown: false,
           })}
+        />
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{
+            headerShown: false,
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

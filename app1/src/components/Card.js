@@ -15,14 +15,16 @@ const Card = ({itemData, onPress}) => {
         />
       </View>
       <View style={styles.cardInfo}>
-        <Text style={styles.cardTitle}>{itemData.title}</Text>
-        {/* <StarRating ratings={itemData.ratings} reviews={itemData.reviews} /> */}
-        <Text numberOfLines={2} style={styles.cardDetails}>
-          {itemData.description}
-        </Text>
-        <Text style={styles.price}>${itemData.price}/month</Text>
+        <View style={styles.cardInfo_wrapper}>
+          <Text style={styles.cardTitle}>{itemData.title}</Text>
+          {/* <StarRating ratings={itemData.ratings} reviews={itemData.reviews} /> */}
+          <Text numberOfLines={2} style={styles.cardDetails}>
+            {itemData.description}
+          </Text>
+        </View>
+        <Text style={styles.price}>{itemData.price}</Text>
         <TouchableOpacity onPress={onPress}>
-          <Text style={styles.btn}>Details</Text>
+          <Text style={styles.btn}>Chi tiết</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -63,6 +65,9 @@ const styles = StyleSheet.create({
     top: -40,
     borderRadius: 20,
   },
+  cardInfo_wrapper: {
+    height: 90,
+  },
   cardInfo: {
     position: 'relative',
     top: -10,
@@ -75,10 +80,9 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontWeight: 'bold',
     fontSize: 18,
-    height: 50,
   },
   cardDetails: {
-    fontSize: 12,
+    fontSize: 14,
     color: '#444',
   },
   btn: {
@@ -89,7 +93,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
     textAlign: 'center',
-    top: 17,
+    top: 12,
     right: -110,
     borderBottomRightRadius: 20,
     borderTopLeftRadius: 20,

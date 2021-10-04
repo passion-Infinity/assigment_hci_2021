@@ -10,6 +10,7 @@ import {
   Image,
 } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import {popularProducts} from '../models/products';
 
 export default function Home({navigation}) {
   return (
@@ -78,6 +79,7 @@ export default function Home({navigation}) {
                       onPress={() =>
                         navigation.navigate('CardItemList', {
                           title: 'Máy tính cho công việc thiết kế',
+                          category: 'design',
                         })
                       }>
                       <Image
@@ -99,7 +101,13 @@ export default function Home({navigation}) {
                 </View>
                 <View style={styles.category_wrapper}>
                   <View style={styles.category_item}>
-                    <Pressable>
+                    <Pressable
+                      onPress={() =>
+                        navigation.navigate('CardItemList', {
+                          title: 'Máy tính cho việc học tập',
+                          category: 'school',
+                        })
+                      }>
                       <Image
                         source={require('../assets/images/student64.png')}
                       />
@@ -151,34 +159,22 @@ export default function Home({navigation}) {
           <View style={styles.product}>
             <Text style={styles.product_title}>Sản phẩm mới</Text>
             <View style={styles.hot_list}>
-              <View style={styles.hot_item}>
-                <View style={styles.hot_item_top}>
-                  <Text style={styles.hot_item_title}>
-                    Dell Inspirasion 2190
-                  </Text>
-                  <Text style={styles.hot_item_info}>New</Text>
-                </View>
-                <Text style={styles.hot_item_price}>3.000.000 đ/tháng</Text>
-                <Image
-                  source={require('../assets/images/hot_product1.png')}
-                  style={styles.hot_img}
-                  resizeMode="contain"
-                />
-              </View>
-              <View style={styles.hot_item}>
-                <View style={styles.hot_item_top}>
-                  <Text style={styles.hot_item_title}>
-                    Dell Inspirasion 2190
-                  </Text>
-                  <Text style={styles.hot_item_info}>New</Text>
-                </View>
-                <Text style={styles.hot_item_price}>3.000.000 đ/tháng</Text>
-                <Image
-                  source={require('../assets/images/hot_product1.png')}
-                  style={styles.hot_img}
-                  resizeMode="contain"
-                />
-              </View>
+              {popularProducts.map((item, index) => {
+                return (
+                  <View style={styles.hot_item} key={index}>
+                    <View style={styles.hot_item_top}>
+                      <Text style={styles.hot_item_title}>{item.name}</Text>
+                      <Text style={styles.hot_item_info}>New</Text>
+                    </View>
+                    <Text style={styles.hot_item_price}>{item.price}</Text>
+                    <Image
+                      source={item.image}
+                      style={styles.hot_img}
+                      resizeMode="contain"
+                    />
+                  </View>
+                );
+              })}
             </View>
           </View>
 

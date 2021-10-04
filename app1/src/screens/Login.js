@@ -26,13 +26,13 @@ export default function Login() {
       <View style={styles.container}>
         <View style={styles.header}>
           <Image
-            style={styles.logo}
+            style={[styles.logo, {position: 'relative', left: 20}]}
             source={require('../assets/images/logo.png')}
           />
-          <Text style={styles.shop_name}>Daskai's</Text>
-          <Text style={styles.shop_cate}>Rental Service</Text>
-          <Text style={styles.welcome}>Welcome!</Text>
-          <Text style={styles.login_title}>Login to continute</Text>
+          <Text style={styles.shop_name}>Forento's</Text>
+          <Text style={styles.shop_cate}>Dịch vụ cho thuê</Text>
+          <Text style={styles.welcome}>Chào mừng!</Text>
+          <Text style={styles.login_title}>Đăng nhập để tiếp tục</Text>
         </View>
         <View style={styles.content}>
           <View style={styles.input_wrapper}>
@@ -44,7 +44,7 @@ export default function Login() {
             />
             <TextInput
               style={styles.input_form}
-              placeholder="Email address"></TextInput>
+              placeholder="Tên đăng nhập"></TextInput>
           </View>
           <View style={styles.input_wrapper}>
             <FontAwesome5
@@ -69,7 +69,7 @@ export default function Login() {
             <TextInput
               secureTextEntry={!visiblePassword}
               style={styles.input_form}
-              placeholder="Password"></TextInput>
+              placeholder="Mặt khẩu"></TextInput>
           </View>
           <View style={styles.control}>
             <View style={styles.control_left}>
@@ -87,7 +87,7 @@ export default function Login() {
                   fontWeight: '400',
                   color: '#999',
                 }}>
-                Remember me
+                Duy trì đăng nhập
               </Text>
             </View>
             <View style={styles.control_right}>
@@ -96,13 +96,13 @@ export default function Login() {
                   color: '#ff9800',
                   fontWeight: '500',
                 }}>
-                Forgot Password
+                Quên mặt khẩu
               </Text>
             </View>
           </View>
           <View style={styles.button_wrapper}>
             <Pressable>
-              <Text style={styles.button}>Login</Text>
+              <Text style={styles.button}>Đăng nhập</Text>
             </Pressable>
           </View>
         </View>
@@ -114,7 +114,7 @@ export default function Login() {
               fontWeight: '700',
               marginRight: 8,
             }}>
-            New user?
+            Người dùng mới?
           </Text>
           <Text
             style={{
@@ -122,8 +122,12 @@ export default function Login() {
               fontSize: 16,
               fontWeight: '700',
             }}>
-            Sign up
+            Đăng ký
           </Text>
+        </View>
+        <View style={styles.social}>
+          <Text style={[styles.social_icon, styles.icon_fb]}>f</Text>
+          <Image source={require('../assets/images/google32.png')} />
         </View>
       </View>
     </TouchableWithoutFeedback>
@@ -159,7 +163,7 @@ const styles = StyleSheet.create({
     marginLeft: 18,
   },
   login_title: {
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: '400',
     color: '#ff9800',
   },
@@ -223,5 +227,25 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 30,
+  },
+  social: {
+    marginTop: 40,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  social_icon: {
+    backgroundColor: 'tomato',
+    width: 35,
+    height: 35,
+    marginRight: 20,
+    textAlign: 'center',
+    lineHeight: 35,
+    color: '#fff',
+    fontSize: 28,
+    fontWeight: '600',
+    borderRadius: 50,
+  },
+  icon_fb: {
+    backgroundColor: '#0d47a1',
   },
 });

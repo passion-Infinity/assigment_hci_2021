@@ -198,7 +198,7 @@ export default class GetStarted extends React.Component {
             position: 'absolute',
             top: 60,
             zIndex: -1,
-            opacity: 0.8,
+            opacity: 0.9,
           }}
           source={require('../assets/images/GetStarted.png')}
         />
