@@ -8,10 +8,11 @@ import {
   TouchableWithoutFeedback,
   Image,
   Keyboard,
+  TouchableOpacity,
 } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-export default function Login() {
+export default function Login({navigation}) {
   const [visiblePassword, setVisiblePassword] = useState(false);
   const [check, setCheck] = useState(false);
   const isShowPass = () => {
@@ -116,14 +117,20 @@ export default function Login() {
             }}>
             Người dùng mới?
           </Text>
-          <Text
-            style={{
-              color: '#ff9800',
-              fontSize: 16,
-              fontWeight: '700',
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() => {
+              navigation.navigate('Register');
             }}>
-            Đăng ký
-          </Text>
+            <Text
+              style={{
+                color: '#ff9800',
+                fontSize: 16,
+                fontWeight: '700',
+              }}>
+              Đăng ký
+            </Text>
+          </TouchableOpacity>
         </View>
         <View style={styles.social}>
           <Text style={[styles.social_icon, styles.icon_fb]}>f</Text>

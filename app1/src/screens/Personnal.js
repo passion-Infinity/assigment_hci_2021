@@ -34,10 +34,15 @@ export default function Personnal({navigation}) {
                 Đăng nhập
               </Text>
             </Pressable>
-            <Text style={{color: '#000', fontWeight: '600'}}>
-              {' '}
-              / Tạo tài khoản
-            </Text>
+            <Pressable
+              onPress={() => {
+                navigation.navigate('Register');
+              }}>
+              <Text style={{color: '#000', fontWeight: '600'}}>
+                {' '}
+                / Tạo tài khoản
+              </Text>
+            </Pressable>
           </View>
         </View>
         <View style={styles.profile_wrapper}>
@@ -110,11 +115,11 @@ export default function Personnal({navigation}) {
                 Tích lũy
               </Text>
             </View>
-            <FontAwesome5 name={'chevron-right'} size={20} color={'#888'} />
+            <FontAwesome5 name={'chevron-right'} size={20} color="#888" />
           </View>
           <View style={styles.my_action_item}>
             <View style={styles.my_action_item_left}>
-              <FontAwesome5 name={'star'} color={'gold'} size={20} />
+              <FontAwesome5 name={'star'} color="gold" size={20} />
               <Text
                 style={{
                   marginLeft: 10,

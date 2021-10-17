@@ -1,5 +1,5 @@
 export const priceSelection = [
-  {label: 'Under $100/month', value: 'low', id: 1},
-  {label: 'From $100 to $300 in one month', value: 'medium', id: 2},
-  {label: 'Over $300/month', value: 'high', id: 3},
+  {label: 'Dưới 1.000.000 đ/tháng', value: 'low', id: 1},
+  {label: 'Từ 1.000.000 đ đến 3.000.000 đ/tháng', value: 'medium', id: 2},
+  {label: 'Trên 3.000.000 đ/tháng', value: 'high', id: 3},
 ];

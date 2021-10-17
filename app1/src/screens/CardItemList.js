@@ -49,7 +49,7 @@ export default function CardItemList({navigation, route}) {
           <View style={styles.modal}>
             <View style={styles.body}>
               <View style={styles.filter_price}>
-                <Text style={styles.filter_title}>Price monthly</Text>
+                <Text style={styles.filter_title}>Giá thuê theo tháng</Text>
                 <View style={styles.filter_price_list}>
                   {priceSelection.map((item, index) => {
                     return (
@@ -83,9 +83,9 @@ export default function CardItemList({navigation, route}) {
                 </View>
               </View>
               <View style={styles.filter_day}>
-                <Text style={styles.filter_title}>Date options</Text>
+                <Text style={styles.filter_title}>Chọn thời gian thuê</Text>
                 <View style={styles.filter_day_wrapper}>
-                  <Text style={styles.filter_day_label}>From date:</Text>
+                  <Text style={styles.filter_day_label}>Từ ngày:</Text>
                   <TextInput
                     maxLength={10}
                     style={styles.filter_day_input}
@@ -96,12 +96,12 @@ export default function CardItemList({navigation, route}) {
                       setCalendarVisible(true);
                     }}>
                     <Text style={styles.filter_open_calendar}>
-                      Open calendar
+                      Lịch thời gian
                     </Text>
                   </Pressable>
                 </View>
                 <View style={styles.filter_day_wrapper}>
-                  <Text style={styles.filter_day_label}>To date:</Text>
+                  <Text style={styles.filter_day_label}>Đến ngày:</Text>
                   <TextInput
                     maxLength={10}
                     style={styles.filter_day_input}
@@ -112,7 +112,7 @@ export default function CardItemList({navigation, route}) {
                       setCalendarVisible(true);
                     }}>
                     <Text style={styles.filter_open_calendar}>
-                      Open calendar
+                      Lịch thời gian
                     </Text>
                   </Pressable>
                 </View>
@@ -123,12 +123,10 @@ export default function CardItemList({navigation, route}) {
                 onPress={() => {
                   setModalVisible(false);
                 }}>
-                <Text style={[styles.btn_action, styles.btn_cancel]}>
-                  Cancel
-                </Text>
+                <Text style={[styles.btn_action, styles.btn_cancel]}>Đóng</Text>
               </Pressable>
               <Pressable>
-                <Text style={[styles.btn_action, styles.btn_apply]}>Apply</Text>
+                <Text style={[styles.btn_action, styles.btn_apply]}>Lọc</Text>
               </Pressable>
             </View>
           </View>
@@ -150,12 +148,12 @@ export default function CardItemList({navigation, route}) {
                 onPress={() => {
                   setCalendarVisible(false);
                 }}>
-                <Text style={[styles.btn_action, styles.btn_cancel]}>
-                  Cancel
-                </Text>
+                <Text style={[styles.btn_action, styles.btn_cancel]}>Đóng</Text>
               </Pressable>
               <Pressable>
-                <Text style={[styles.btn_action, styles.btn_apply]}>Apply</Text>
+                <Text style={[styles.btn_action, styles.btn_apply]}>
+                  Áp dụng
+                </Text>
               </Pressable>
             </View>
           </View>
@@ -269,7 +267,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingRight: 20,
     paddingBottom: 20,
-    paddingTop: 25,
+    paddingTop: 15,
     paddingLeft: 10,
   },
   center_view: {

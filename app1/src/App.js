@@ -17,6 +17,7 @@ import Splash from './Splash';
 import Login from './screens/Login';
 import HomeTabNavigation from './screens/HomeTabNavigation';
 import RentalScreen from './screens/RentalScreen';
+import Register from './screens/Register';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -77,6 +78,13 @@ export default function App() {
         <Stack.Screen
           name="Login"
           component={Login}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Register"
+          component={Register}
           options={{
             headerShown: false,
           }}

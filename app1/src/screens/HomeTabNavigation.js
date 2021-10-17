@@ -114,6 +114,7 @@ export default function HomeTabNavigation() {
         name={'History'}
         component={History}
         options={{
+          title: 'Lịch sử thuê',
           tabBarIcon: ({focused}) => (
             <View>
               <FontAwesome5

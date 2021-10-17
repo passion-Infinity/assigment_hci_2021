@@ -26,10 +26,10 @@ export default function Home({navigation}) {
       <View style={styles.header}>
         <View style={styles.header_top}>
           <Pressable>
-            <FontAwesome5 name={'list'} size={20} color={'#333'} />
+            <FontAwesome5 name={'list'} size={18} color={'#fff'} />
           </Pressable>
           <Pressable>
-            <FontAwesome5 name={'bell'} size={20} color={'#333'} />
+            <FontAwesome5 name={'bell'} size={18} color={'#fff'} />
           </Pressable>
         </View>
         <View style={styles.header_bottom}>
@@ -43,7 +43,7 @@ export default function Home({navigation}) {
           <FontAwesome5
             style={styles.icon_search}
             name={'search'}
-            size={20}
+            size={16}
             color={'#777'}
           />
           <TextInput
@@ -275,7 +275,7 @@ const styles = StyleSheet.create({
   icon_search: {
     position: 'absolute',
     zIndex: 2,
-    top: 11,
+    top: 12,
     left: 55,
   },
   search: {
@@ -284,7 +284,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     borderWidth: 1,
     borderColor: '#e0e0e0',
-    paddingLeft: 45,
+    paddingLeft: 50,
     fontSize: 16,
     fontWeight: '600',
     color: '#000',
