@@ -27,6 +27,7 @@ export default function CardItemList({navigation, route}) {
       <Card
         itemData={item}
         onPress={() => navigation.navigate('CardItemDetail', {itemData: item})}
+        navigation={navigation}
       />
     );
   };
@@ -127,7 +128,7 @@ export default function CardItemList({navigation, route}) {
                 </Text>
               </Pressable>
               <Pressable>
-                <Text style={[styles.btn_action, styles.btn_apply]}>Aply</Text>
+                <Text style={[styles.btn_action, styles.btn_apply]}>Apply</Text>
               </Pressable>
             </View>
           </View>
@@ -154,7 +155,7 @@ export default function CardItemList({navigation, route}) {
                 </Text>
               </Pressable>
               <Pressable>
-                <Text style={[styles.btn_action, styles.btn_apply]}>Aply</Text>
+                <Text style={[styles.btn_action, styles.btn_apply]}>Apply</Text>
               </Pressable>
             </View>
           </View>
@@ -206,7 +207,7 @@ export default function CardItemList({navigation, route}) {
         </View>
       </View>
       <View style={styles.filter}>
-        <Text style={styles.title}>Thiết bị khả dụng</Text>
+        <Text style={styles.title}>Đề xuất cho bạn</Text>
         <Pressable
           onPress={() => {
             setModalVisible(true);
@@ -285,7 +286,7 @@ const styles = StyleSheet.create({
   },
   body: {
     flex: 3,
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
   },
   btn: {
     flexDirection: 'row',

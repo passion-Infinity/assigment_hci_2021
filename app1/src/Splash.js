@@ -17,7 +17,7 @@ export default class Splash extends React.Component {
           speed={0.8}
           onAnimationFinish={() => {
             console.log('animation is finish');
-            this.props.navigation.replace('GetStarted');
+            this.props.navigation.replace('GetStarted1');
           }}
         />
       </View>
@@ -30,6 +30,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#ffca28',
+    backgroundColor: '#a576b8',
   },
 });

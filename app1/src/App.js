@@ -9,14 +9,14 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import GetStarted from './screens/GetStarted';
+import GetStarted1 from './screens/GetStarted1';
 import CardItemList from './screens/CardItemList';
 import CardItemDetail from './screens/CardItemDetail';
 import CalendarsScreen from './screens/Calendar';
 import Splash from './Splash';
 import Login from './screens/Login';
 import HomeTabNavigation from './screens/HomeTabNavigation';
-import {Image, Text, View} from 'react-native';
+import RentalScreen from './screens/RentalScreen';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -31,8 +31,8 @@ export default function App() {
           }}
         />
         <Stack.Screen
-          name="GetStarted"
-          component={GetStarted}
+          name="GetStarted1"
+          component={GetStarted1}
           options={{
             headerShown: false,
           }}
@@ -77,6 +77,13 @@ export default function App() {
         <Stack.Screen
           name="Login"
           component={Login}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="RentalScreen"
+          component={RentalScreen}
           options={{
             headerShown: false,
           }}

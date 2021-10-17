@@ -7,6 +7,7 @@ import {
   Dimensions,
   StatusBar,
   Platform,
+  TouchableOpacity,
 } from 'react-native';
 import {
   ImageHeaderScrollView,
@@ -15,11 +16,12 @@ import {
 
 import * as Animatable from 'react-native-animatable';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import {color} from 'react-native-reanimated';
 
 const MIN_HEIGHT = Platform.OS === 'ios' ? 90 : 55;
 const MAX_HEIGHT = 350;
 
-export default function CardItemDetail({route}) {
+export default function CardItemDetail({navigation, route}) {
   const itemData = route.params.itemData;
   const navTitleView = useRef(null);
 
@@ -80,6 +82,14 @@ export default function CardItemDetail({route}) {
             Áp dụng khuyến mãi {itemData.month6.percent} khi thuê liên tục trong
             6 tháng
           </Text>
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() => {
+              navigation.navigate('RentalScreen', {itemData: itemData});
+            }}
+            style={styles.btn_submit}>
+            <Text style={styles.btn_submit_text}>Tiến hành thuê</Text>
+          </TouchableOpacity>
         </TriggeringView>
         <View style={styles.main_content}>
           <View style={[styles.sectionLarge]}>
@@ -371,5 +381,19 @@ const styles = StyleSheet.create({
   },
   information_device_desc: {
     maxWidth: 250,
+  },
+  btn_submit: {
+    marginTop: 20,
+    width: '100%',
+    height: 40,
+    backgroundColor: '#FF6347',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 5,
+  },
+  btn_submit_text: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: '#fff',
   },
 });

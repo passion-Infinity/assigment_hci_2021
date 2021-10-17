@@ -3,9 +3,8 @@ import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 
 import StarRating from './StarRating';
 
-const Card = ({itemData, onPress}) => {
+export default function Card({navigation, itemData}) {
   return (
-    // <TouchableOpacity onPress={onPress}>
     <View style={styles.card}>
       <View style={styles.cardImgWrapper}>
         <Image
@@ -21,26 +20,32 @@ const Card = ({itemData, onPress}) => {
           <Text numberOfLines={2} style={styles.cardDetails}>
             {itemData.description}
           </Text>
+          <Text style={styles.price}>{itemData.price}</Text>
         </View>
-        <Text style={styles.price}>{itemData.price}</Text>
-        <TouchableOpacity onPress={onPress}>
-          <Text style={styles.btn}>Chi tiết</Text>
-        </TouchableOpacity>
+        <View style={styles.btn_wrapper}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('CardItemDetail', {itemData: itemData});
+            }}>
+            <Text style={styles.btn}>Chi tiết</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('RentalScreen', {itemData: itemData});
+            }}>
+            <Text style={[styles.btn, {marginLeft: 10}]}>Chọn thuê</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
-    // </TouchableOpacity>
   );
-};
-
-export default Card;
+}
 
 const styles = StyleSheet.create({
   card: {
     marginRight: 8,
     marginLeft: 5,
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: 140,
+    height: 200,
     marginVertical: 20,
     flexDirection: 'row',
     backgroundColor: '#fff',
@@ -52,26 +57,20 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.8,
     shadowRadius: 3.84,
     elevation: 5,
-    borderRadius: 20,
+    borderRadius: 10,
   },
   cardImgWrapper: {
     flex: 1,
+    marginRight: 10,
   },
   cardImg: {
     height: '65%',
     width: '100%',
     alignSelf: 'center',
-    position: 'relative',
-    top: -40,
     borderRadius: 20,
   },
-  cardInfo_wrapper: {
-    height: 90,
-  },
   cardInfo: {
-    position: 'relative',
-    top: -10,
-    flex: 2,
+    flex: 1.5,
     padding: 10,
     backgroundColor: '#fff',
     borderTopRightRadius: 20,
@@ -79,30 +78,33 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     fontWeight: 'bold',
-    fontSize: 18,
+    fontSize: 16,
   },
   cardDetails: {
     fontSize: 14,
     color: '#444',
   },
   btn: {
-    position: 'relative',
-    width: '55%',
-    paddingVertical: 16,
+    width: 110,
+    paddingVertical: 8,
     backgroundColor: 'blue',
     color: '#fff',
     fontWeight: 'bold',
     textAlign: 'center',
-    top: 12,
-    right: -110,
-    borderBottomRightRadius: 20,
-    borderTopLeftRadius: 20,
+    borderRadius: 20,
   },
   price: {
-    position: 'absolute',
-    top: 120,
-    left: -85,
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: '600',
+    marginTop: 5,
+  },
+  btn_wrapper: {
+    flexDirection: 'row',
+    position: 'relative',
+    top: 40,
+    left: -22,
+  },
+  cardInfo_wrapper: {
+    height: 100,
   },
 });

@@ -26,10 +26,10 @@ export default function Home({navigation}) {
       <View style={styles.header}>
         <View style={styles.header_top}>
           <Pressable>
-            <FontAwesome5 name={'list'} size={25} color={'#333'} />
+            <FontAwesome5 name={'list'} size={20} color={'#333'} />
           </Pressable>
           <Pressable>
-            <FontAwesome5 name={'bell'} size={25} color={'#333'} />
+            <FontAwesome5 name={'bell'} size={20} color={'#333'} />
           </Pressable>
         </View>
         <View style={styles.header_bottom}>
@@ -204,18 +204,18 @@ export default function Home({navigation}) {
               <View style={styles.popular_item}>
                 <View popular_item_content>
                   <Text style={styles.popular_item_name}>
-                    Macbook Pro max 2019
+                    Laptop Acer Nitro 5 Gaming AN515
                   </Text>
                   <Text style={styles.popular_item_price}>
                     5.000.000 đ/tháng
                   </Text>
                   <Text style={styles.popular_item_sale}>
                     <FontAwesome5 name={'fire'} size={22} color="#ff5121" />
-                    Giảm 20% khi thuê trong 6 tháng liên tiếp
+                    Giảm 20% khi thuê trong 6 tháng
                   </Text>
                 </View>
                 <Image
-                  source={require('../assets/images/popular_product1.png')}
+                  source={require('../assets/images/popular_product3.jpg')}
                   style={styles.popular_img}
                   resizeMode="contain"
                 />
@@ -236,7 +236,7 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     paddingBottom: 100,
     paddingHorizontal: 15,
-    backgroundColor: '#ffca28',
+    backgroundColor: '#a576b8',
     // borderBottomLeftRadius: 60,
     // borderBottomRightRadius: 60,
     opacity: 0.9,
@@ -247,11 +247,11 @@ const styles = StyleSheet.create({
   },
   header_bottom: {
     width: '80%',
-    marginTop: 20,
+    marginTop: 15,
   },
   header_title: {
-    fontSize: 25,
-    color: '#333',
+    fontSize: 20,
+    color: '#fff',
     fontWeight: '700',
     paddingLeft: 10,
   },
@@ -260,8 +260,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     marginBottom: 10,
     backgroundColor: '#eeeeee',
-    borderTopLeftRadius: 40,
-    borderTopRightRadius: 40,
+    borderTopLeftRadius: 5,
+    borderTopRightRadius: 5,
     position: 'relative',
     top: -50,
   },
@@ -279,7 +279,7 @@ const styles = StyleSheet.create({
     left: 55,
   },
   search: {
-    width: '80%',
+    width: '85%',
     height: 45,
     borderRadius: 50,
     borderWidth: 1,
@@ -391,7 +391,7 @@ const styles = StyleSheet.create({
   },
   popular_item: {
     width: 360,
-    height: 240,
+    height: 250,
     flexDirection: 'row',
     backgroundColor: '#fff',
     paddingHorizontal: 10,
