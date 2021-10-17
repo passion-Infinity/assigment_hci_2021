@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import {
   View,
   Text,
@@ -24,19 +24,16 @@ const MAX_HEIGHT = 350;
 export default function CardItemDetail({navigation, route}) {
   const itemData = route.params.itemData;
   const navTitleView = useRef(null);
-
-  const hiddenFunc = () => {
-    console.log('fsdafsad');
-  };
-
-  const displayFunc = () => {
-    navTitleView.current.fadeOut(100);
+  const [scrollY, setScrollY] = useState(0);
+  const handleScroll = event => {
+    setScrollY(event.nativeEvent.contentOffset.y);
   };
 
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
       <ImageHeaderScrollView
+        onScroll={handleScroll}
         maxHeight={MAX_HEIGHT}
         minHeight={MIN_HEIGHT}
         overScrollMode="never"
@@ -52,14 +49,15 @@ export default function CardItemDetail({navigation, route}) {
           </View>
         )}
         renderFixedForeground={() => (
-          <Animatable.View style={styles.navTitleView} ref={navTitleView}>
-            <Text style={styles.navTitle}>{itemData.title}</Text>
-          </Animatable.View>
+          <Text numberOfLines={2} style={styles.navTitle}>
+            {scrollY >= 260 ? (
+              <Text style={styles.navTitle}>{itemData.title}</Text>
+            ) : (
+              <Text></Text>
+            )}
+          </Text>
         )}>
-        <TriggeringView
-          style={styles.section}
-          onHide={hiddenFunc}
-          onDisplay={displayFunc}>
+        <TriggeringView style={styles.section}>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             <Text style={styles.title}>{itemData.title}</Text>
             <View style={{flexDirection: 'row', alignItems: 'flex-end'}}>
@@ -319,6 +317,8 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 18,
     backgroundColor: 'transparent',
+    marginTop: 12,
+    marginLeft: 10,
   },
   sectionLarge: {
     minHeight: 300,
