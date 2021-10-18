@@ -49,7 +49,7 @@ export default function CardItemList({navigation, route}) {
           <View style={styles.modal}>
             <View style={styles.body}>
               <View style={styles.filter_price}>
-                <Text style={styles.filter_title}>Giá thuê theo tháng</Text>
+                <Text style={styles.filter_title}>Giá thuê theo ngày</Text>
                 <View style={styles.filter_price_list}>
                   {priceSelection.map((item, index) => {
                     return (
@@ -96,7 +96,7 @@ export default function CardItemList({navigation, route}) {
                       setCalendarVisible(true);
                     }}>
                     <Text style={styles.filter_open_calendar}>
-                      Lịch thời gian
+                      Lựa chọn ngày
                     </Text>
                   </Pressable>
                 </View>
@@ -112,7 +112,7 @@ export default function CardItemList({navigation, route}) {
                       setCalendarVisible(true);
                     }}>
                     <Text style={styles.filter_open_calendar}>
-                      Lịch thời gian
+                      Lựa chọn ngày
                     </Text>
                   </Pressable>
                 </View>
@@ -210,7 +210,13 @@ export default function CardItemList({navigation, route}) {
           onPress={() => {
             setModalVisible(true);
           }}>
-          <FontAwesome5 name={'filter'} size={20} color={'#333'} />
+          <View
+            style={{
+              flexDirection: 'row',
+            }}>
+            <FontAwesome5 name={'filter'} size={20} color={'#333'} />
+            <Text style={{marginLeft: 3}}>Lọc</Text>
+          </View>
         </Pressable>
       </View>
       <View style={styles.body}>

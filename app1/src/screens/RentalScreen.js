@@ -9,6 +9,7 @@ import {
   Keyboard,
   TouchableOpacity,
   Image,
+  ScrollView,
 } from 'react-native';
 import {paypal} from '../models/paypal';
 import Paypal from '../components/PaypalCard';
@@ -31,103 +32,151 @@ export default function RentalScreen({navigation, route}) {
               <FontAwesome5 name="chevron-left" color="#333" size={20} />
             </View>
           </TouchableOpacity>
+          <Text
+            style={{
+              fontSize: 22,
+              color: '#333',
+              fontWeight: '900',
+              marginLeft: 30,
+            }}>
+            Thanh toán
+          </Text>
         </View>
-        <View style={styles.body}>
-          <View style={styles.form_info}>
-            <View style={styles.form_info_top}>
+        <ScrollView style={{width: '100%'}}>
+          <View style={styles.body}>
+            <View style={styles.form_info}>
+              <View style={styles.form_info_top}>
+                <Text
+                  style={{
+                    fontSize: 22,
+                    fontWeight: '600',
+                    color: '#fff',
+                  }}>
+                  Nhập thông tin thuê
+                </Text>
+                <View style={styles.form_info_header_icon}>
+                  <FontAwesome5 name="hourglass-half" color="#000" size={20} />
+                </View>
+              </View>
+              <View style={styles.form_input}>
+                <TextInput style={styles.input} placeholder="Phan Đình Giót" />
+              </View>
+              <View style={styles.form_input}>
+                <TextInput style={styles.input} placeholder="037888255" />
+              </View>
+              <View style={styles.form_date}>
+                <TouchableOpacity activeOpacity={0.8}>
+                  <View style={styles.date_item}>
+                    <FontAwesome5 name="calendar-alt" color="#333" size={20} />
+                    <Text>10/11/2021</Text>
+                  </View>
+                </TouchableOpacity>
+                <TouchableOpacity activeOpacity={0.8}>
+                  <View style={styles.date_item}>
+                    <FontAwesome5 name="calendar-alt" color="#333" size={20} />
+                    <Text>10/12/2021</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
               <Text
                 style={{
-                  fontSize: 22,
-                  fontWeight: '600',
+                  fontSize: 18,
                   color: '#fff',
+                  marginTop: 20,
+                  fontWeight: 'bold',
                 }}>
-                Nhập thông tin thuê
+                Tổng ngày thuê: 30
               </Text>
-              <View style={styles.form_info_header_icon}>
-                <FontAwesome5 name="hourglass-half" color="#000" size={20} />
-              </View>
             </View>
-            <View style={styles.form_input}>
-              <TextInput
-                style={styles.input}
-                placeholder="Địa chỉ khách hàng"
-              />
-            </View>
-            <View style={styles.form_input}>
-              <TextInput style={styles.input} placeholder="Số điện thoại" />
-            </View>
-            <View style={styles.form_date}>
-              <TouchableOpacity activeOpacity={0.8}>
-                <View style={styles.date_item}>
-                  <FontAwesome5 name="calendar-alt" color="#333" size={20} />
-                  <Text>Ngày thuê</Text>
+            <View style={styles.product_info}>
+              <Text style={styles.product_info_title}>Thông tin sản phẩm</Text>
+              <View style={styles.product}>
+                <View style={styles.image_wrapper}>
+                  <Image style={styles.image} source={itemData.image} />
                 </View>
-              </TouchableOpacity>
-              <TouchableOpacity activeOpacity={0.8}>
-                <View style={styles.date_item}>
-                  <FontAwesome5 name="calendar-alt" color="#333" size={20} />
-                  <Text>Ngày trả</Text>
+                <View style={styles.product_item}>
+                  <Text style={styles.name}>{itemData.title}</Text>
+                  <Text style={styles.price}>{itemData.price}</Text>
                 </View>
-              </TouchableOpacity>
-            </View>
-          </View>
-          <View style={styles.product_info}>
-            <Text style={styles.product_info_title}>Thông tin sản phẩm</Text>
-            <View style={styles.product}>
-              <View style={styles.image_wrapper}>
-                <Image style={styles.image} source={itemData.image} />
-              </View>
-              <View style={styles.product_item}>
-                <Text style={styles.name}>{itemData.title}</Text>
-                <Text style={styles.price}>{itemData.price}</Text>
               </View>
             </View>
-          </View>
-          <View style={styles.paypal_wrapper}>
-            <Text style={styles.paypal_title}>Phương thức thanh toán</Text>
-            <View style={styles.paypal_method}>
-              {paypal.map((item, index) => {
-                return (
-                  <View key={item.id}>
-                    {checked === index ? (
-                      <TouchableOpacity
-                        activeOpacity={0.8}
-                        style={styles.btn_radio}>
-                        <Image
-                          style={styles.img_radio}
-                          source={require('../assets/images/radio_checked.png')}
-                        />
-                        <Text style={styles.text_radio}>{item.name}</Text>
-                      </TouchableOpacity>
-                    ) : (
-                      <TouchableOpacity
-                        activeOpacity={0.5}
-                        style={styles.btn_radio}
-                        onPress={() => {
-                          setChecked(index);
-                        }}>
-                        <Image
-                          style={styles.img_radio}
-                          source={require('../assets/images/radio_unchecked.png')}
-                        />
-                        <Text style={styles.text_radio}>{item.name}</Text>
-                      </TouchableOpacity>
-                    )}
-                  </View>
-                );
-              })}
+            <View style={styles.paypal_wrapper}>
+              <Text style={styles.paypal_title}>Phương thức thanh toán</Text>
+              <View style={styles.paypal_method}>
+                {paypal.map((item, index) => {
+                  return (
+                    <View key={item.id}>
+                      {checked === index ? (
+                        <TouchableOpacity
+                          activeOpacity={0.8}
+                          style={styles.btn_radio}>
+                          <Image
+                            style={styles.img_radio}
+                            source={require('../assets/images/radio_checked.png')}
+                          />
+                          <Text style={styles.text_radio}>{item.name}</Text>
+                        </TouchableOpacity>
+                      ) : (
+                        <TouchableOpacity
+                          activeOpacity={0.5}
+                          style={styles.btn_radio}
+                          onPress={() => {
+                            setChecked(index);
+                          }}>
+                          <Image
+                            style={styles.img_radio}
+                            source={require('../assets/images/radio_unchecked.png')}
+                          />
+                          <Text style={styles.text_radio}>{item.name}</Text>
+                        </TouchableOpacity>
+                      )}
+                    </View>
+                  );
+                })}
+              </View>
+            </View>
+            {checked ? (
+              <View style={{width: '100%', height: 55}}></View>
+            ) : (
+              <Paypal />
+            )}
+            <View style={styles.payment_wrapper}>
+              <View
+                style={{
+                  flex: 1,
+                  justifyContent: 'center',
+                  marginLeft: 10,
+                }}>
+                <Text
+                  style={{
+                    fontSize: 18,
+                    fontWeight: '600',
+                  }}>
+                  Tổng tiền
+                </Text>
+              </View>
+              <View
+                style={{
+                  flex: 2,
+                  alignItems: 'flex-end',
+                  justifyContent: 'center',
+                  marginRight: 8,
+                }}>
+                <Text
+                  style={{
+                    fontSize: 16,
+                    fontWeight: '500',
+                  }}>
+                  4.500.000đ
+                </Text>
+              </View>
             </View>
           </View>
-          {checked ? (
-            <View style={{width: '100%', height: 55}}></View>
-          ) : (
-            <Paypal />
-          )}
-          <View style={styles.btn_submit}>
-            <TouchableOpacity>
-              <Text style={styles.btn_submit_text}>Tiến hành thanh toán</Text>
-            </TouchableOpacity>
-          </View>
+        </ScrollView>
+        <View style={styles.btn_submit}>
+          <TouchableOpacity>
+            <Text style={styles.btn_submit_text}>Thanh toán</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </TouchableWithoutFeedback>
@@ -145,6 +194,8 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingVertical: 15,
     paddingHorizontal: 15,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   btn_back: {
     width: 40,
@@ -159,10 +210,11 @@ const styles = StyleSheet.create({
     width: '100%',
     marginTop: 7,
     alignItems: 'center',
+    paddingBottom: 50,
   },
   form_info: {
     width: '90%',
-    height: 300,
+    height: 320,
     backgroundColor: '#b05cff',
     borderRadius: 20,
     alignItems: 'center',
@@ -276,12 +328,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 5,
-    position: 'absolute',
-    bottom: -70,
+    position: 'relative',
+    top: -10,
   },
   btn_submit_text: {
     fontSize: 18,
     fontWeight: '600',
     color: '#fff',
+  },
+  payment_wrapper: {
+    width: '90%',
+    height: 50,
+    backgroundColor: '#ffc885',
+    marginTop: 35,
+    flexDirection: 'row',
   },
 });

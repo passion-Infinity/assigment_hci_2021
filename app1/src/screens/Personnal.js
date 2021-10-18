@@ -144,7 +144,7 @@ export default function Personnal({navigation}) {
                   fontWeight: '500',
                   fontSize: 16,
                 }}>
-                Sản phẩm đã thuê
+                Lịch sử thuê sản phẩm
               </Text>
             </View>
             <FontAwesome5 name={'chevron-right'} size={20} color={'#888'} />

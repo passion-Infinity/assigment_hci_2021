@@ -80,6 +80,24 @@ export default function CardItemDetail({navigation, route}) {
             Áp dụng khuyến mãi {itemData.month6.percent} khi thuê liên tục trong
             6 tháng
           </Text>
+          <Text
+            style={{
+              marginTop: 8,
+              fontSize: 16,
+              fontWeight: '500',
+            }}>
+            Tình trạng máy:
+          </Text>
+          <View
+            style={{
+              position: 'relative',
+              fontSize: 15,
+              top: -20,
+              left: 130,
+            }}>
+            <Text>Tốc độ xử lý: 5/10</Text>
+            <Text>Độ nguyên vẹn: 92%</Text>
+          </View>
           <TouchableOpacity
             activeOpacity={0.8}
             onPress={() => {
