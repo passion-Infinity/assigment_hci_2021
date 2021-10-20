@@ -11,7 +11,7 @@ import {
   Image,
   ScrollView,
 } from 'react-native';
-import {paypal} from '../models/paypal';
+import {paypal, delivery} from '../models/paypal';
 import Paypal from '../components/PaypalCard';
 
 export default function RentalScreen({navigation, route}) {
@@ -39,7 +39,7 @@ export default function RentalScreen({navigation, route}) {
               fontWeight: '900',
               marginLeft: 30,
             }}>
-            Thanh toán
+            Xác nhận thông tin thuê
           </Text>
         </View>
         <ScrollView style={{width: '100%'}}>
@@ -52,31 +52,92 @@ export default function RentalScreen({navigation, route}) {
                     fontWeight: '600',
                     color: '#fff',
                   }}>
-                  Nhập thông tin thuê
+                  Nhập thông tin liên lạc
                 </Text>
                 <View style={styles.form_info_header_icon}>
                   <FontAwesome5 name="hourglass-half" color="#000" size={20} />
                 </View>
               </View>
-              <View style={styles.form_input}>
-                <TextInput style={styles.input} placeholder="Phan Đình Giót" />
+              <View style={{width: '100%'}}>
+                <Text
+                  style={{
+                    position: 'relative',
+                    top: 12,
+                    left: 45,
+                    fontSize: 14,
+                    color: '#fff',
+                    fontWeight: 'bold',
+                  }}>
+                  Địa chỉ nhận hàng
+                </Text>
+                <View style={styles.form_input}>
+                  <TextInput
+                    style={styles.input}
+                    placeholder="Tân Uyên Bình Dương"
+                  />
+                </View>
               </View>
-              <View style={styles.form_input}>
-                <TextInput style={styles.input} placeholder="037888255" />
+              <View style={{width: '100%'}}>
+                <Text
+                  style={{
+                    position: 'relative',
+                    top: 12,
+                    left: 45,
+                    fontSize: 14,
+                    color: '#fff',
+                    fontWeight: 'bold',
+                  }}>
+                  Số điện thoại
+                </Text>
+                <View style={styles.form_input}>
+                  <TextInput style={styles.input} placeholder="037888255" />
+                </View>
               </View>
               <View style={styles.form_date}>
-                <TouchableOpacity activeOpacity={0.8}>
-                  <View style={styles.date_item}>
-                    <FontAwesome5 name="calendar-alt" color="#333" size={20} />
-                    <Text>10/11/2021</Text>
-                  </View>
-                </TouchableOpacity>
-                <TouchableOpacity activeOpacity={0.8}>
-                  <View style={styles.date_item}>
-                    <FontAwesome5 name="calendar-alt" color="#333" size={20} />
-                    <Text>10/12/2021</Text>
-                  </View>
-                </TouchableOpacity>
+                <View>
+                  <Text
+                    style={{
+                      marginBottom: 5,
+                      fontSize: 14,
+                      color: '#fff',
+                      fontWeight: 'bold',
+                      marginLeft: 5,
+                    }}>
+                    Ngày thuê
+                  </Text>
+                  <TouchableOpacity activeOpacity={0.8}>
+                    <View style={styles.date_item}>
+                      <FontAwesome5
+                        name="calendar-alt"
+                        color="#333"
+                        size={20}
+                      />
+                      <Text>10/11/2021</Text>
+                    </View>
+                  </TouchableOpacity>
+                </View>
+                <View>
+                  <Text
+                    style={{
+                      marginBottom: 5,
+                      fontSize: 14,
+                      color: '#fff',
+                      fontWeight: 'bold',
+                      marginLeft: 5,
+                    }}>
+                    Ngày trả
+                  </Text>
+                  <TouchableOpacity activeOpacity={0.8}>
+                    <View style={styles.date_item}>
+                      <FontAwesome5
+                        name="calendar-alt"
+                        color="#333"
+                        size={20}
+                      />
+                      <Text>10/12/2021</Text>
+                    </View>
+                  </TouchableOpacity>
+                </View>
               </View>
               <Text
                 style={{
@@ -97,7 +158,72 @@ export default function RentalScreen({navigation, route}) {
                 <View style={styles.product_item}>
                   <Text style={styles.name}>{itemData.title}</Text>
                   <Text style={styles.price}>{itemData.price}</Text>
+                  <View>
+                    <View style={styles.control_quantity}>
+                      <Text style={styles.btn_quantity}>-</Text>
+                      <Text style={styles.quantity_text}>8</Text>
+                      <Text style={styles.btn_quantity}>+</Text>
+                    </View>
+                  </View>
                 </View>
+              </View>
+            </View>
+            <View style={styles.code_sale_wrapper}>
+              <Image
+                style={{
+                  width: 30,
+                  height: 30,
+                  position: 'absolute',
+                }}
+                source={require('../assets/images/sale-tag.png')}
+              />
+              <TextInput
+                style={styles.code_sale_input}
+                placeholder="Mã khuyến mãi"
+              />
+              <TouchableOpacity style={styles.code_sale_btn}>
+                <Text
+                  style={{
+                    fontWeight: '600',
+                    color: '#fff',
+                  }}>
+                  Áp dụng
+                </Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.paypal_wrapper}>
+              <Text style={styles.paypal_title}>Chọn hình thức giao hàng</Text>
+              <View style={styles.paypal_method}>
+                {delivery.map((item, index) => {
+                  return (
+                    <View key={item.id}>
+                      {checked === index ? (
+                        <TouchableOpacity
+                          activeOpacity={0.8}
+                          style={styles.btn_radio}>
+                          <Image
+                            style={styles.img_radio}
+                            source={require('../assets/images/radio_checked.png')}
+                          />
+                          <Text style={styles.text_radio}>{item.name}</Text>
+                        </TouchableOpacity>
+                      ) : (
+                        <TouchableOpacity
+                          activeOpacity={0.5}
+                          style={styles.btn_radio}
+                          onPress={() => {
+                            setChecked(index);
+                          }}>
+                          <Image
+                            style={styles.img_radio}
+                            source={require('../assets/images/radio_unchecked.png')}
+                          />
+                          <Text style={styles.text_radio}>{item.name}</Text>
+                        </TouchableOpacity>
+                      )}
+                    </View>
+                  );
+                })}
               </View>
             </View>
             <View style={styles.paypal_wrapper}>
@@ -152,7 +278,7 @@ export default function RentalScreen({navigation, route}) {
                     fontSize: 18,
                     fontWeight: '600',
                   }}>
-                  Tổng tiền
+                  Tạm tính
                 </Text>
               </View>
               <View
@@ -174,8 +300,11 @@ export default function RentalScreen({navigation, route}) {
           </View>
         </ScrollView>
         <View style={styles.btn_submit}>
-          <TouchableOpacity>
-            <Text style={styles.btn_submit_text}>Thanh toán</Text>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Confirm', {itemData: itemData});
+            }}>
+            <Text style={styles.btn_submit_text}>Thuê</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -214,7 +343,7 @@ const styles = StyleSheet.create({
   },
   form_info: {
     width: '90%',
-    height: 320,
+    height: 380,
     backgroundColor: '#b05cff',
     borderRadius: 20,
     alignItems: 'center',
@@ -339,8 +468,54 @@ const styles = StyleSheet.create({
   payment_wrapper: {
     width: '90%',
     height: 50,
-    backgroundColor: '#ffc885',
+    backgroundColor: '#eeeded',
     marginTop: 35,
     flexDirection: 'row',
+  },
+  control_quantity: {
+    flexDirection: 'row',
+    marginVertical: 10,
+  },
+  btn_quantity: {
+    width: 35,
+    height: 25,
+    fontSize: 30,
+    lineHeight: 30,
+    textAlign: 'center',
+    backgroundColor: '#ddd',
+  },
+  quantity_text: {
+    width: 40,
+    height: 25,
+    fontSize: 16,
+    lineHeight: 25,
+    textAlign: 'center',
+    backgroundColor: '#eee',
+  },
+  code_sale_wrapper: {
+    width: '90%',
+    height: 40,
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderRadius: 3,
+    marginTop: 30,
+  },
+  code_sale_input: {
+    width: '65%',
+    paddingLeft: 40,
+    fontSize: 15,
+    borderRadius: 3,
+    fontWeight: '400',
+    borderWidth: 1,
+    borderColor: '#ddd',
+  },
+  code_sale_btn: {
+    marginLeft: 25,
+    width: 100,
+    height: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'blue',
+    borderRadius: 5,
   },
 });

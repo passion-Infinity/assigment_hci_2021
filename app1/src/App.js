@@ -18,6 +18,8 @@ import Login from './screens/Login';
 import HomeTabNavigation from './screens/HomeTabNavigation';
 import RentalScreen from './screens/RentalScreen';
 import Register from './screens/Register';
+import Confirm from './screens/ConfirmScreen';
+import Success from './screens/Success';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -92,6 +94,20 @@ export default function App() {
         <Stack.Screen
           name="RentalScreen"
           component={RentalScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Confirm"
+          component={Confirm}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Success"
+          component={Success}
           options={{
             headerShown: false,
           }}
