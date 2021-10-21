@@ -74,7 +74,7 @@ export default function Confirm({navigation, route}) {
             <View style={styles.customer}>
               <Text style={styles.label}>Tình trạng thiết bị: </Text>
               <Text style={styles.customer_value}>
-                Bình thường, không trày sướt
+                Bình thường, không trày xước
               </Text>
             </View>
             <View style={styles.customer}>
@@ -113,7 +113,14 @@ export default function Confirm({navigation, route}) {
               - Khi trả hàng, tình trạng thiết bị phải giống như trong đơn hàng
             </Text>
             <Text>- Thời gian thuê cập nhật từ lúc nhận hàng</Text>
-            <Text>- Khi hết thời gian thuê, nhân viên sẽ đến </Text>
+            <Text>
+              - Khi hết thời gian thuê, nhân viên sẽ trực tiếp đến địa chỉ của
+              khách hàng để lấy sản phẩm{' '}
+            </Text>
+            <Text>
+              - Nếu máy bị hư hỏng hay không nguyên vẹn trong lúc trả máy thì
+              phải bồi thường
+            </Text>
           </View>
           <View style={styles.submit_wrapper}>
             <View style={styles.row}>

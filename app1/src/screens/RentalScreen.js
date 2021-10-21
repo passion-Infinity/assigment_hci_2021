@@ -73,7 +73,7 @@ export default function RentalScreen({navigation, route}) {
                 <View style={styles.form_input}>
                   <TextInput
                     style={styles.input}
-                    placeholder="Tân Uyên Bình Dương"
+                    placeholder="Tổ 4, khu 8, Uyên Hưng, Tân Uyên, Bình Dương"
                   />
                 </View>
               </View>
