@@ -1,5 +1,12 @@
 import React from 'react';
-import {StyleSheet, View, Text, Image, Pressable} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  Pressable,
+  TouchableOpacity,
+} from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 export default function Personnal({navigation}) {
@@ -67,13 +74,19 @@ export default function Personnal({navigation}) {
               }}>
               Đơn hàng của tôi
             </Text>
-            <Text
-              style={{
-                fontSize: 18,
-                color: '#0091cc',
-              }}>
-              Xem lịch sử
-            </Text>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('HistoryTabNavigation');
+              }}
+              activeOpacity={0.4}>
+              <Text
+                style={{
+                  fontSize: 18,
+                  color: '#0091cc',
+                }}>
+                Xem lịch sử
+              </Text>
+            </TouchableOpacity>
           </View>
           <View style={styles.my_order_bottom}>
             <View style={styles.order_status}>
@@ -138,14 +151,20 @@ export default function Personnal({navigation}) {
                 color={'#039be5'}
                 size={20}
               />
-              <Text
-                style={{
-                  marginLeft: 10,
-                  fontWeight: '500',
-                  fontSize: 16,
-                }}>
-                Lịch sử thuê sản phẩm
-              </Text>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate('HistoryTabNavigation');
+                }}
+                activeOpacity={0.4}>
+                <Text
+                  style={{
+                    marginLeft: 10,
+                    fontWeight: '500',
+                    fontSize: 16,
+                  }}>
+                  Lịch sử thuê sản phẩm
+                </Text>
+              </TouchableOpacity>
             </View>
             <FontAwesome5 name={'chevron-right'} size={20} color={'#888'} />
           </View>

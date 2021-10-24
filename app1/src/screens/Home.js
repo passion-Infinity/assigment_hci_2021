@@ -245,7 +245,7 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     paddingBottom: 100,
     paddingHorizontal: 15,
-    backgroundColor: '#a576b8',
+    backgroundColor: '#3483eb',
     // borderBottomLeftRadius: 60,
     // borderBottomRightRadius: 60,
     opacity: 0.9,

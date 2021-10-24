@@ -20,6 +20,7 @@ import RentalScreen from './screens/RentalScreen';
 import Register from './screens/Register';
 import Confirm from './screens/ConfirmScreen';
 import Success from './screens/Success';
+import HistoryTabNavigation from './screens/HistoryTabNavigation';
 
 const Stack = createNativeStackNavigator();
 export default function App() {

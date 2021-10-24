@@ -6,6 +6,7 @@ import Personnal from './Personnal';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {Animated, Image, Platform, TouchableOpacity, View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import HistoryTabNavigation from './HistoryTabNavigation';
 // import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 
 // const Tab = createMaterialBottomTabNavigator();
@@ -111,10 +112,10 @@ export default function HomeTabNavigation() {
         }}></Tab.Screen>
 
       <Tab.Screen
-        name={'History'}
-        component={History}
+        name={'HistoryTabNavigation'}
+        component={HistoryTabNavigation}
         options={{
-          title: 'Lịch sử thuê',
+          title: 'Đơn hàng của tôi',
           tabBarIcon: ({focused}) => (
             <View>
               <FontAwesome5
