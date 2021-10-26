@@ -45,7 +45,7 @@ export const products = [
       percent: '',
     },
     month6: {
-      name: '3 Tháng',
+      name: '6 Tháng',
       price: '13.500.000 đ',
       content: 'Áp dụng khuyến mãi',
       percent: '30%',
@@ -87,8 +87,8 @@ export const products = [
     month6: {
       name: '3 Tháng',
       price: '10.080.000 đ',
-      content: 'Áp dụng khuyến mãi',
-      percent: '30%',
+      content: '',
+      percent: '',
     },
   },
   {
@@ -127,8 +127,8 @@ export const products = [
     month6: {
       name: '6 Tháng',
       price: ' 14.000.000 đ',
-      content: 'Áp dụng khuyến mãi',
-      percent: '30%',
+      content: '',
+      percent: '',
     },
   },
   {

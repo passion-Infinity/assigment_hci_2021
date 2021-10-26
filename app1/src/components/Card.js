@@ -21,6 +21,13 @@ export default function Card({navigation, itemData}) {
             {itemData.description}
           </Text>
           <Text style={styles.price}>{itemData.price}</Text>
+          <Text
+            style={{
+              marginTop: 5,
+              color: 'red',
+            }}>
+            {itemData.month6.content && itemData.month6.content}
+          </Text>
         </View>
         <View style={styles.btn_wrapper}>
           <TouchableOpacity
