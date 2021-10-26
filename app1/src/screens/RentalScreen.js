@@ -17,6 +17,7 @@ import Paypal from '../components/PaypalCard';
 export default function RentalScreen({navigation, route}) {
   const itemData = route.params.itemData;
   const [checked, setChecked] = useState(0);
+  const [checked1, setChecked1] = useState(0);
   return (
     <TouchableWithoutFeedback
       onPress={() => {
@@ -52,10 +53,26 @@ export default function RentalScreen({navigation, route}) {
                     fontWeight: '600',
                     color: '#fff',
                   }}>
-                  Nhập thông tin liên lạc
+                  Thông tin khách hàng
                 </Text>
                 <View style={styles.form_info_header_icon}>
                   <FontAwesome5 name="hourglass-half" color="#000" size={20} />
+                </View>
+              </View>
+              <View style={{width: '100%'}}>
+                <Text
+                  style={{
+                    position: 'relative',
+                    top: 12,
+                    left: 45,
+                    fontSize: 14,
+                    color: '#fff',
+                    fontWeight: 'bold',
+                  }}>
+                  Họ tên
+                </Text>
+                <View style={styles.form_input}>
+                  <TextInput style={styles.input} placeholder="Nguyen Van A" />
                 </View>
               </View>
               <View style={{width: '100%'}}>
@@ -197,7 +214,7 @@ export default function RentalScreen({navigation, route}) {
                 {delivery.map((item, index) => {
                   return (
                     <View key={item.id}>
-                      {checked === index ? (
+                      {checked1 === index ? (
                         <TouchableOpacity
                           activeOpacity={0.8}
                           style={styles.btn_radio}>
@@ -212,7 +229,7 @@ export default function RentalScreen({navigation, route}) {
                           activeOpacity={0.5}
                           style={styles.btn_radio}
                           onPress={() => {
-                            setChecked(index);
+                            setChecked1(index);
                           }}>
                           <Image
                             style={styles.img_radio}
@@ -343,7 +360,7 @@ const styles = StyleSheet.create({
   },
   form_info: {
     width: '90%',
-    height: 380,
+    height: 430,
     backgroundColor: '#b05cff',
     borderRadius: 20,
     alignItems: 'center',

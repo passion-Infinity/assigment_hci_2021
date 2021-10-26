@@ -21,6 +21,7 @@ import Register from './screens/Register';
 import Confirm from './screens/ConfirmScreen';
 import Success from './screens/Success';
 import HistoryTabNavigation from './screens/HistoryTabNavigation';
+import UpdatePerson from './screens/UpdatePerson';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -109,6 +110,13 @@ export default function App() {
         <Stack.Screen
           name="Success"
           component={Success}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="UpdatePerson"
+          component={UpdatePerson}
           options={{
             headerShown: false,
           }}

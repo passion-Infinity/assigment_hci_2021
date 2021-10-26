@@ -43,7 +43,7 @@ export default function Confirm({navigation, route}) {
             </View>
             <View style={styles.customer}>
               <Text style={styles.label}>Khách hàng: </Text>
-              <Text style={styles.customer_value}>Phan Đình Giót</Text>
+              <Text style={styles.customer_value}>Nguyễn Văn A</Text>
             </View>
             <View style={styles.customer}>
               <Text style={styles.label}>Địa chỉ nhận hàng: </Text>
@@ -118,8 +118,9 @@ export default function Confirm({navigation, route}) {
               khách hàng để lấy sản phẩm{' '}
             </Text>
             <Text>
-              - Nếu máy bị hư hỏng hay không nguyên vẹn trong lúc trả máy thì
-              phải bồi thường
+              - Nếu máy bị hư hỏng hay không còn nguyên vẹn như ban đầu, lúc trả
+              máy thì khách hàng có trách nhiệm bồi thường thiết bị theo quy
+              định.
             </Text>
           </View>
           <View style={styles.submit_wrapper}>

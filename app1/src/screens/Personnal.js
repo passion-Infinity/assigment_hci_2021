@@ -173,14 +173,19 @@ export default function Personnal({navigation}) {
           <View style={styles.my_action_item}>
             <View style={styles.my_action_item_left}>
               <FontAwesome5 name={'user'} color={'#039be5'} size={20} />
-              <Text
-                style={{
-                  marginLeft: 10,
-                  fontWeight: '500',
-                  fontSize: 16,
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate('UpdatePerson');
                 }}>
-                Cập nhật thông tin cá nhân
-              </Text>
+                <Text
+                  style={{
+                    marginLeft: 10,
+                    fontWeight: '500',
+                    fontSize: 16,
+                  }}>
+                  Cập nhật thông tin cá nhân
+                </Text>
+              </TouchableOpacity>
             </View>
             <FontAwesome5 name={'chevron-right'} size={20} color={'#888'} />
           </View>
