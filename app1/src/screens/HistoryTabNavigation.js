@@ -21,20 +21,20 @@ export default function HistoryTabNavigation() {
         tabBarInactiveTintColor: '#827e7e',
         tabBarActiveTintColor: '#2191ed',
       }}>
-      <Tab.Screen
+      {/* <Tab.Screen
         name="AllOrdersScreen"
         component={AllOrdersScreen}
         options={{
           tabBarLabel: 'Tất cả đơn',
         }}
-      />
-      <Tab.Screen
+      /> */}
+      {/* <Tab.Screen
         name="WaitingForPaymentScreen"
         component={WaitingForPaymentScreen}
         options={{
           tabBarLabel: 'Chờ thanh toán',
         }}
-      />
+      /> */}
       <Tab.Screen
         name="Processing"
         component={ProcessingScreen}

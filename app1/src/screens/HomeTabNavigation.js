@@ -1,5 +1,6 @@
 import React from 'react';
 import Home from './Home';
+import Home1 from './Home1';
 import Chat from './Chat';
 import History from './History';
 import Personnal from './Personnal';
@@ -12,7 +13,7 @@ import HistoryTabNavigation from './HistoryTabNavigation';
 // const Tab = createMaterialBottomTabNavigator();
 const Tab = createBottomTabNavigator();
 
-export default function HomeTabNavigation() {
+export default function HomeTabNavigation({navigation}) {
   // return (
   //   <Tab.Navigator
   //     initialRouteName="Home"
@@ -97,8 +98,8 @@ export default function HomeTabNavigation() {
         // Tab ICons....
       }
       <Tab.Screen
-        name={'Home'}
-        component={Home}
+        name={'Home1'}
+        component={Home1}
         options={{
           headerShown: false,
           tabBarIcon: ({focused}) => (
@@ -119,7 +120,7 @@ export default function HomeTabNavigation() {
           tabBarIcon: ({focused}) => (
             <View>
               <FontAwesome5
-                name="clipboard-list"
+                name="list-alt"
                 size={focused ? 28 : 22}
                 color={focused ? 'red' : 'gray'}></FontAwesome5>
             </View>
@@ -135,7 +136,10 @@ export default function HomeTabNavigation() {
         component={EmptyScreen}
         options={{
           tabBarIcon: ({focused}) => (
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Cart');
+              }}>
               <View
                 style={{
                   width: 60,
@@ -146,14 +150,7 @@ export default function HomeTabNavigation() {
                   alignItems: 'center',
                   marginBottom: Platform.OS == 'android' ? 50 : 30,
                 }}>
-                {/* <Image
-                  source={require('../assets/images/paint-palette64.png')}
-                  style={{
-                    width: 30,
-                    height: 30,
-                    tintColor: 'white',
-                  }}></Image> */}
-                <FontAwesome5 name="qrcode" size={30} color={'#fff'} />
+                <FontAwesome5 name="shopping-cart" size={30} color={'#fff'} />
               </View>
             </TouchableOpacity>
           ),

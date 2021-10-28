@@ -17,11 +17,14 @@ import Splash from './Splash';
 import Login from './screens/Login';
 import HomeTabNavigation from './screens/HomeTabNavigation';
 import RentalScreen from './screens/RentalScreen';
+import RentalScreen1 from './screens/RentalScreen1';
 import Register from './screens/Register';
 import Confirm from './screens/ConfirmScreen';
 import Success from './screens/Success';
 import HistoryTabNavigation from './screens/HistoryTabNavigation';
 import UpdatePerson from './screens/UpdatePerson';
+import CartScreen from './screens/CartScreen';
+import RulesScreen from './screens/RulesScreen';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -101,6 +104,13 @@ export default function App() {
           }}
         />
         <Stack.Screen
+          name="RentalScreen1"
+          component={RentalScreen1}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
           name="Confirm"
           component={Confirm}
           options={{
@@ -117,6 +127,20 @@ export default function App() {
         <Stack.Screen
           name="UpdatePerson"
           component={UpdatePerson}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Cart"
+          component={CartScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="RulesScreen"
+          component={RulesScreen}
           options={{
             headerShown: false,
           }}

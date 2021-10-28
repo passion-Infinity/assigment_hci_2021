@@ -38,9 +38,9 @@ export default function Card({navigation, itemData}) {
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate('RentalScreen', {itemData: itemData});
+              // navigation.navigate('RentalScreen', {itemData: itemData});
             }}>
-            <Text style={[styles.btn, {marginLeft: 10}]}>Chọn thuê</Text>
+            <Text style={[styles.btn, {marginLeft: 10}]}>Thêm vào giỏ</Text>
           </TouchableOpacity>
         </View>
       </View>

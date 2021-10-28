@@ -73,13 +73,12 @@ export default function CardItemDetail({navigation, route}) {
               paddingBottom: 3,
               alignItems: 'center',
             }}>
-            <Text style={styles.price}>${itemData.price} </Text>
-            <Text style={styles.cost}>${itemData.cost}</Text>
+            <Text style={styles.price}>{itemData.price} </Text>
+            <Text style={styles.cost}>{itemData.cost}</Text>
           </View>
-          <Text style={styles.sale_info}>
-            Áp dụng khuyến mãi {itemData.month6.percent} khi thuê liên tục trong
-            6 tháng
-          </Text>
+          {/* <Text style={styles.sale_info}>
+            Áp dụng khuyến mãi {itemData.month6.percent} khi thuê trong 6 tháng
+          </Text> */}
           <Text
             style={{
               marginTop: 8,
@@ -98,19 +97,42 @@ export default function CardItemDetail({navigation, route}) {
             <Text>Tốc độ xử lý: 5/10</Text>
             <Text>Độ nguyên vẹn: 92%</Text>
           </View>
-          <TouchableOpacity
+          {/* <TouchableOpacity
             activeOpacity={0.8}
             onPress={() => {
-              navigation.navigate('RentalScreen', {itemData: itemData});
+              navigation.navigate('RentalScreen1', {itemData: itemData});
             }}
             style={styles.btn_submit}>
             <Text style={styles.btn_submit_text}>Tiến hành thuê</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'space-evenly',
+            }}>
+            <TouchableOpacity
+              activeOpacity={0.8}
+              onPress={() => {
+                navigation.navigate('RentalScreen1', {itemData: itemData});
+              }}
+              style={styles.btn_submit}>
+              <Text style={styles.btn_submit_text}>Tiến hành thuê</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              activeOpacity={0.8}
+              // onPress={() => {
+              //   navigation.navigate('RentalScreen1', {itemData: itemData});
+              // }}
+              style={styles.btn_submit}>
+              <Text style={styles.btn_submit_text}>Thêm vào giỏ</Text>
+            </TouchableOpacity>
+          </View>
         </TriggeringView>
         <View style={styles.main_content}>
-          <View style={[styles.sectionLarge]}>
+          {/* <View style={[styles.sectionLarge]}>
             <Text style={styles.section_title}>Bảng giá chi tiết</Text>
-            {/* <Text style={styles.sectionContent}>{itemData.description}</Text> */}
+            <Text style={styles.sectionContent}>{itemData.description}</Text>
             <View
               style={[styles.infomation_wrapper, styles.infomation_highlight]}>
               <Text style={styles.infomation_title}>1 Ngày</Text>
@@ -140,8 +162,13 @@ export default function CardItemDetail({navigation, route}) {
                 <Text style={styles.infomation_detail}>
                   Giá: {itemData.week.price}
                 </Text>
-                <Text style={{color: 'red', fontWeight: '500'}}>
-                  {itemData.week.content} {itemData.week.percent}
+                <Text
+                  style={{
+                    textDecorationLine: 'line-through',
+                    color: '#a0a0a0',
+                    fontWeight: '900',
+                  }}>
+                  {itemData.week.cost}
                 </Text>
               </View>
             </View>
@@ -161,8 +188,13 @@ export default function CardItemDetail({navigation, route}) {
                 <Text style={styles.infomation_detail}>
                   Giá: {itemData.month1.price}
                 </Text>
-                <Text style={{color: 'red', fontWeight: '500'}}>
-                  {itemData.month1.content} {itemData.month1.percent}
+                <Text
+                  style={{
+                    textDecorationLine: 'line-through',
+                    color: '#a0a0a0',
+                    fontWeight: '900',
+                  }}>
+                  {itemData.month1.cost}
                 </Text>
               </View>
             </View>
@@ -181,8 +213,13 @@ export default function CardItemDetail({navigation, route}) {
                 <Text style={styles.infomation_detail}>
                   Giá: {itemData.month3.price}
                 </Text>
-                <Text style={{color: 'red', fontWeight: '500'}}>
-                  {itemData.month3.content} {itemData.month3.percent}
+                <Text
+                  style={{
+                    textDecorationLine: 'line-through',
+                    color: '#a0a0a0',
+                    fontWeight: '900',
+                  }}>
+                  {itemData.month3.cost}
                 </Text>
               </View>
             </View>
@@ -202,25 +239,108 @@ export default function CardItemDetail({navigation, route}) {
                 <Text style={styles.infomation_detail}>
                   Giá: {itemData.month6.price}
                 </Text>
-                <Text style={{color: 'red', fontWeight: '500'}}>
-                  {itemData.month6.content} {itemData.month6.percent}
+                <Text
+                  style={{
+                    textDecorationLine: 'line-through',
+                    color: '#a0a0a0',
+                    fontWeight: '900',
+                  }}>
+                  {itemData.month6.cost}
                 </Text>
+              </View>
+            </View>
+          </View> */}
+
+          <View style={styles.main_content}>
+            <View style={[styles.sectionLarge]}>
+              <Text style={styles.section_title}>Giá thuê chi tiết</Text>
+              <View style={styles.price_card}>
+                <View style={styles.price_card_item}>
+                  <Text style={styles.price_card_title}>
+                    {itemData.week.name}
+                  </Text>
+                  {itemData.week.cost ? (
+                    <Text style={styles.price_card_default}>
+                      {itemData.week.cost}
+                    </Text>
+                  ) : (
+                    <Text></Text>
+                  )}
+                  <Text style={styles.price_card_sale}>
+                    {itemData.week.price}
+                  </Text>
+                </View>
+                <View style={styles.price_card_item}>
+                  <Text style={styles.price_card_title}>
+                    {itemData.month1.name}
+                  </Text>
+                  {itemData.month1.cost ? (
+                    <Text style={styles.price_card_default}>
+                      {itemData.month1.cost}
+                    </Text>
+                  ) : (
+                    <Text></Text>
+                  )}
+                  <Text style={styles.price_card_sale}>
+                    {itemData.month1.price}
+                  </Text>
+                </View>
+                <View style={styles.price_card_item}>
+                  <Text style={styles.price_card_title}>
+                    {itemData.month3.name}
+                  </Text>
+                  {itemData.month3.cost ? (
+                    <Text style={styles.price_card_default}>
+                      {itemData.month3.cost}
+                    </Text>
+                  ) : (
+                    <Text></Text>
+                  )}
+                  <Text style={styles.price_card_sale}>
+                    {itemData.month3.price}
+                  </Text>
+                </View>
+                <View style={styles.price_card_item}>
+                  <Text style={styles.price_card_title}>
+                    {itemData.month6.name}
+                  </Text>
+                  {itemData.month6.cost ? (
+                    <Text style={styles.price_card_default}>
+                      {itemData.month6.cost}
+                    </Text>
+                  ) : (
+                    <Text></Text>
+                  )}
+                  <Text style={styles.price_card_sale}>
+                    {itemData.month6.price}
+                  </Text>
+                </View>
               </View>
             </View>
           </View>
 
           <View style={styles.information_device}>
-            <Text style={styles.section_title}>Cấu hình máy chi tiết</Text>
+            <Text style={styles.section_title}>Thông số kỹ thuật</Text>
+            <View style={[styles.information_device_wrapper]}>
+              <Text style={styles.information_device_name}>
+                Hệ diều hành-OS:
+              </Text>
+              <Text style={styles.information_device_desc}>Window 10</Text>
+            </View>
             <View
               style={[
                 styles.information_device_wrapper,
                 styles.infomation_highlight,
               ]}>
-              <Text style={styles.information_device_name}>CPU:</Text>
+              <Text style={styles.information_device_name}>
+                Bộ vi xử lý-CPU:
+              </Text>
               <Text style={styles.information_device_desc}>{itemData.cpu}</Text>
             </View>
             <View style={[styles.information_device_wrapper]}>
-              <Text style={styles.information_device_name}>RAM:</Text>
+              <Text style={styles.information_device_name}>
+                Bộ nhớ trong-RAM:
+              </Text>
               <Text style={styles.information_device_desc}>{itemData.ram}</Text>
             </View>
             <View
@@ -228,7 +348,9 @@ export default function CardItemDetail({navigation, route}) {
                 styles.information_device_wrapper,
                 styles.infomation_highlight,
               ]}>
-              <Text style={styles.information_device_name}>Ổ cứng:</Text>
+              <Text style={styles.information_device_name}>
+                Ổ đĩa cứng-HDD:
+              </Text>
               <Text style={styles.information_device_desc}>
                 {itemData.hardDisk}
               </Text>
@@ -242,13 +364,28 @@ export default function CardItemDetail({navigation, route}) {
           </View>
 
           <View style={styles.section}>
-            <View style={styles.categories}>
-              {itemData.aims.map((category, index) => (
-                <View style={styles.categoryContainer} key={index}>
-                  <FontAwesome name="tag" size={16} color="#fff" />
-                  <Text style={styles.category}>{category}</Text>
-                </View>
-              ))}
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'space-evenly',
+              }}>
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() => {
+                  navigation.navigate('RentalScreen1', {itemData: itemData});
+                }}
+                style={styles.btn_submit}>
+                <Text style={styles.btn_submit_text}>Tiến hành thuê</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={0.8}
+                // onPress={() => {
+                //   navigation.navigate('RentalScreen1', {itemData: itemData});
+                // }}
+                style={styles.btn_submit}>
+                <Text style={styles.btn_submit_text}>Thêm vào giỏ</Text>
+              </TouchableOpacity>
             </View>
           </View>
         </View>
@@ -401,17 +538,51 @@ const styles = StyleSheet.create({
     maxWidth: 250,
   },
   btn_submit: {
+    // position: 'relative',
     marginTop: 20,
-    width: '100%',
-    height: 40,
+    width: '48%',
+    height: 45,
     backgroundColor: '#FF6347',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 5,
+    borderRadius: 10,
+    // left: 20,
   },
   btn_submit_text: {
     fontSize: 18,
     fontWeight: '600',
     color: '#fff',
+  },
+  price_card: {
+    width: '100%',
+    alignItems: 'center',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-evenly',
+  },
+  price_card_item: {
+    width: 150,
+    height: 100,
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 15,
+    borderWidth: 0.6,
+    borderColor: 'blue',
+  },
+  price_card_title: {
+    fontSize: 16,
+    fontWeight: '300',
+  },
+  price_card_default: {
+    fontSize: 15,
+    fontWeight: '600',
+    textDecorationLine: 'line-through',
+    color: '#aaa',
+    paddingVertical: 5,
+  },
+  price_card_sale: {
+    fontSize: 18,
+    fontWeight: '600',
   },
 });

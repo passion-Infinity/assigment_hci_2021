@@ -66,7 +66,7 @@ export default function UpdatePerson({navigation}) {
             <View style={styles.input_wrapper}>
               <FontAwesome5
                 style={styles.icon}
-                name={'user-alt'}
+                name={'phone'}
                 size={18}
                 color={'#888'}
               />

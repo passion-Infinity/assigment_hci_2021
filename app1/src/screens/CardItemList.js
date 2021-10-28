@@ -21,6 +21,7 @@ import CalendarsScreen from './Calendar';
 
 export default function CardItemList({navigation, route}) {
   const category = route.params.category;
+  const title = route.params.title;
   const dataFilter = products.filter(value => value.category === category);
   const renderItem = ({item}) => {
     return (
@@ -170,18 +171,24 @@ export default function CardItemList({navigation, route}) {
           </Pressable>
           <Text
             style={{
-              fontSize: 25,
+              fontSize: 20,
               fontWeight: 'bold',
               marginLeft: 20,
               color: '#333',
             }}>
-            Chọn thiết bị
+            {title}
           </Text>
+          <Pressable
+            style={{position: 'absolute', right: 0}}
+            onPress={() => {
+              navigation.navigate('Cart');
+            }}>
+            <FontAwesome5 name={'shopping-cart'} size={25} color="#333" />
+          </Pressable>
         </View>
-        <FontAwesome5 name={'search'} size={22} color="#999" />
       </View>
       <View style={styles.category}>
-        <Text style={styles.title}>Nhãn hiệu</Text>
+        <Text style={styles.title}>Thương hiệu</Text>
         <View style={styles.brand_list}>
           <FlatList
             keyExtractor={item => item.id.toString()}
@@ -205,7 +212,7 @@ export default function CardItemList({navigation, route}) {
         </View>
       </View>
       <View style={styles.filter}>
-        <Text style={styles.title}>Đề xuất cho bạn</Text>
+        <Text style={styles.title}>Danh sách thiết bị</Text>
         <Pressable
           onPress={() => {
             setModalVisible(true);
@@ -214,7 +221,7 @@ export default function CardItemList({navigation, route}) {
             style={{
               flexDirection: 'row',
             }}>
-            <FontAwesome5 name={'filter'} size={20} color={'#333'} />
+            <FontAwesome5 name={'filter'} size={20} color={'#aaa'} />
             <Text style={{marginLeft: 3}}>Lọc</Text>
           </View>
         </Pressable>
@@ -244,6 +251,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   header_card_top: {
+    width: '100%',
     flexDirection: 'row',
   },
   category: {
@@ -272,8 +280,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingRight: 20,
-    paddingBottom: 20,
-    paddingTop: 15,
+    paddingBottom: 15,
     paddingLeft: 10,
   },
   center_view: {

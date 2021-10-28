@@ -91,10 +91,10 @@ export default function Confirm({navigation, route}) {
               <Text style={styles.label}>Phí vận chuyển: </Text>
               <Text style={styles.customer_value}>100.000đ</Text>
             </View>
-            <View style={styles.customer}>
+            {/* <View style={styles.customer}>
               <Text style={styles.label}>Áp dụng khuyến mãi: </Text>
               <Text style={styles.customer_value}>30%</Text>
-            </View>
+            </View> */}
             <View style={styles.customer}>
               <Text style={styles.label}>Thời gian giao hàng: </Text>
               <Text style={styles.customer_value}>20/11/2021</Text>

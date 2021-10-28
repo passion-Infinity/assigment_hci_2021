@@ -132,7 +132,7 @@ export default function OrderCard({data, navigation}) {
         </View>
       </Modal>
       <View style={styles.top}>
-        <Text
+        {/* <Text
           style={{
             fontSize: 18,
             fontWeight: '600',
@@ -141,7 +141,30 @@ export default function OrderCard({data, navigation}) {
             marginLeft: 12,
           }}>
           {data.orderStatusName}
-        </Text>
+        </Text> */}
+        {data.orderStatusName == 'Đang thuê' ? (
+          <Text
+            style={{
+              fontSize: 18,
+              fontWeight: '600',
+              color: 'green',
+              lineHeight: 40,
+              marginLeft: 12,
+            }}>
+            {data.orderStatusName}
+          </Text>
+        ) : (
+          <Text
+            style={{
+              fontSize: 18,
+              fontWeight: '600',
+              color: '#8e9194',
+              lineHeight: 40,
+              marginLeft: 12,
+            }}>
+            {data.orderStatusName}
+          </Text>
+        )}
       </View>
       <View style={styles.content}>
         <View style={styles.image_wrapper}>
@@ -154,31 +177,47 @@ export default function OrderCard({data, navigation}) {
           <Text style={styles.quantity}>Số lượng: {data.orderQuantity}</Text>
           <Text style={styles.price}>Tổng tiền: {data.orderTotal}</Text>
           <Text style={styles.time}>Thời gian: {data.orderTime} </Text>
+          <View
+            style={{
+              width: 220,
+              marginTop: 5,
+            }}>
+            <Text style={styles.address}>
+              Địa chỉ: Đường khánh bình 33, Uyên Hưng, Tân Uyên, Bình Dương{' '}
+            </Text>
+          </View>
         </View>
       </View>
       <View style={styles.bottom}>
-        <TouchableOpacity
-          onPress={rating}
-          activeOpacity={0.4}
-          style={styles.button}>
-          <Text style={styles.button_text}>Đánh giá</Text>
-        </TouchableOpacity>
-        {data.orderStatus == 'being' && (
+        {(data.orderStatus == 'da_thue' || data.orderStatus == 'dang_thue') && (
+          <TouchableOpacity
+            onPress={rating}
+            activeOpacity={0.4}
+            style={styles.button}>
+            <Text style={styles.button_text}>Đánh giá</Text>
+          </TouchableOpacity>
+        )}
+        {data.orderStatus == 'dang_xu_ly' && (
           <TouchableOpacity
             onPress={cancel}
             activeOpacity={0.8}
-            style={[styles.button, styles.cancel]}>
+            style={[styles.button, styles.cancel1]}>
             <Text style={[styles.button_text, styles.cancel_text]}>
               Hủy đơn
             </Text>
           </TouchableOpacity>
         )}
-        {data.orderStatus == 'been' && (
+        {data.orderStatus == 'da_thue' && (
           <TouchableOpacity
             onPress={rentalAgain}
             activeOpacity={0.8}
             style={styles.button}>
             <Text style={[styles.button_text]}>Thuê lại</Text>
+          </TouchableOpacity>
+        )}
+        {data.orderStatus == 'dang_thue' && (
+          <TouchableOpacity activeOpacity={0.8} style={styles.button}>
+            <Text style={[styles.button_text]}>Trả máy</Text>
           </TouchableOpacity>
         )}
       </View>
@@ -237,7 +276,7 @@ const styles = StyleSheet.create({
   bottom: {
     width: '100%',
     flexDirection: 'row',
-    marginTop: 25,
+    marginTop: 70,
     paddingBottom: 20,
     justifyContent: 'space-evenly',
   },
@@ -254,6 +293,10 @@ const styles = StyleSheet.create({
     color: '#106dc9',
   },
   cancel: {
+    borderColor: '#c4141c',
+  },
+  cancel1: {
+    width: '85%',
     borderColor: '#c4141c',
   },
   cancel_text: {
@@ -302,4 +345,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 20,
   },
+  address: {},
 });

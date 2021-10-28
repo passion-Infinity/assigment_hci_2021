@@ -6,7 +6,7 @@ import {allOrders} from '../models/order';
 
 export default function ProcessingScreen({navigation}) {
   const data = allOrders.filter(item => {
-    return item.orderStatusName == 'Chờ thanh toán';
+    return item.orderStatusName == 'Đang xử lý';
   });
   const renderItem = ({item}) => {
     return <OrderCard data={item} navigation={navigation} />;
