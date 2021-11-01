@@ -164,7 +164,7 @@ export default function CardItemDetail({navigation, route}) {
               alignItems: 'center',
               justifyContent: 'space-evenly',
             }}>
-            <TouchableOpacity
+            {/* <TouchableOpacity
               activeOpacity={0.8}
               onPress={() => {
                 // navigation.navigate('RentalScreen1', {itemData: itemData});
@@ -172,7 +172,7 @@ export default function CardItemDetail({navigation, route}) {
               }}
               style={styles.btn_submit}>
               <Text style={styles.btn_submit_text}>Chọn thuê</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
             {/* <TouchableOpacity
               activeOpacity={0.8}
               // onPress={() => {
@@ -417,7 +417,7 @@ export default function CardItemDetail({navigation, route}) {
             </View>
           </View>
 
-          <View style={styles.section}>
+          {/* <View style={styles.section}>
             <View
               style={{
                 flexDirection: 'row',
@@ -433,18 +433,19 @@ export default function CardItemDetail({navigation, route}) {
                 style={styles.btn_submit}>
                 <Text style={styles.btn_submit_text}>Chọn thuê</Text>
               </TouchableOpacity>
-              {/* <TouchableOpacity
-                activeOpacity={0.8}
-                // onPress={() => {
-                //   navigation.navigate('RentalScreen1', {itemData: itemData});
-                // }}
-                style={styles.btn_submit}>
-                <Text style={styles.btn_submit_text}>Thêm vào giỏ</Text>
-              </TouchableOpacity> */}
             </View>
-          </View>
+          </View> */}
         </View>
       </ImageHeaderScrollView>
+      <TouchableOpacity
+        activeOpacity={0.8}
+        onPress={() => {
+          // navigation.navigate('RentalScreen1', {itemData: itemData});
+          setShow(true);
+        }}
+        style={styles.btn_submit}>
+        <Text style={styles.btn_submit_text}>Chọn thuê</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -595,13 +596,14 @@ const styles = StyleSheet.create({
   btn_submit: {
     // position: 'relative',
     marginTop: 20,
-    width: '95%',
+    width: '90%',
     height: 45,
     backgroundColor: '#FF6347',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 10,
-    // left: 20,
+    left: 20,
+    bottom: 10,
   },
   btn_submit_text: {
     fontSize: 18,
