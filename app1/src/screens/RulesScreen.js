@@ -17,7 +17,9 @@ export default function RulesScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.header_text}>Quy định thuê sản phẩm</Text>
+        <Text style={styles.header_text}>
+          ĐIỀU KHOẢN VÀ ĐIỀU KIỆN CHO THUÊ LAPTOP
+        </Text>
       </View>
       <View style={styles.body}>
         <Text style={styles.title}>Khi nhận sản phẩm</Text>
@@ -64,6 +66,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: '500',
     paddingTop: 15,
+    textAlign: 'center',
   },
   body: {
     paddingHorizontal: 8,

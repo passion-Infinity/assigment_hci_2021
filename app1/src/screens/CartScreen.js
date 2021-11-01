@@ -21,7 +21,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {priceSelection} from '../models/priceSelection';
 import CalendarsScreen from './Calendar';
 
-export default function CartScreen({navigation}) {
+export default function CartScreen({navigation, route}) {
   return (
     <View style={styles.container}>
       <View style={styles.header}>

@@ -88,7 +88,7 @@ export default function Personnal({navigation}) {
               </Text>
             </TouchableOpacity>
           </View>
-          <View style={styles.my_order_bottom}>
+          {/* <View style={styles.my_order_bottom}>
             <View style={styles.order_status}>
               <Text style={styles.text_icon}>
                 <FontAwesome5 name={'receipt'} color={''} size={20} />
@@ -113,12 +113,12 @@ export default function Personnal({navigation}) {
               </Text>
               <Text style={styles.text_content}>Chờ đánh giá</Text>
             </View>
-          </View>
+          </View> */}
         </View>
         <View style={styles.my_action}>
           <View style={styles.my_action_item}>
             <View style={styles.my_action_item_left}>
-              <FontAwesome5 name={'gem'} color={'#039be5'} size={20} />
+              <FontAwesome5 name="gem" color="#039be5" size={20} />
               <Text
                 style={{
                   marginLeft: 10,
@@ -128,7 +128,7 @@ export default function Personnal({navigation}) {
                 Tích lũy
               </Text>
             </View>
-            <FontAwesome5 name={'chevron-right'} size={20} color="#888" />
+            <FontAwesome5 name="chevron-right" size={20} color="#888" />
           </View>
           <View style={styles.my_action_item}>
             <View style={styles.my_action_item_left}>
@@ -142,15 +142,11 @@ export default function Personnal({navigation}) {
                 Đánh giá sản phẩm
               </Text>
             </View>
-            <FontAwesome5 name={'chevron-right'} size={20} color={'#888'} />
+            <FontAwesome5 name="chevron-right" size={20} color="#888" />
           </View>
           <View style={styles.my_action_item}>
             <View style={styles.my_action_item_left}>
-              <FontAwesome5
-                name={'cart-arrow-down'}
-                color={'#039be5'}
-                size={20}
-              />
+              <FontAwesome5 name="cart-arrow-down" color="#039be5" size={20} />
               <TouchableOpacity
                 onPress={() => {
                   navigation.navigate('HistoryTabNavigation');
@@ -166,13 +162,13 @@ export default function Personnal({navigation}) {
                 </Text>
               </TouchableOpacity>
             </View>
-            <FontAwesome5 name={'chevron-right'} size={20} color={'#888'} />
+            <FontAwesome5 name="chevron-right" size={20} color="#888" />
           </View>
         </View>
         <View style={styles.my_info}>
           <View style={styles.my_action_item}>
             <View style={styles.my_action_item_left}>
-              <FontAwesome5 name={'user'} color={'#039be5'} size={20} />
+              <FontAwesome5 name="user" color="#039be5" size={20} />
               <TouchableOpacity
                 onPress={() => {
                   navigation.navigate('UpdatePerson');
@@ -187,7 +183,7 @@ export default function Personnal({navigation}) {
                 </Text>
               </TouchableOpacity>
             </View>
-            <FontAwesome5 name={'chevron-right'} size={20} color={'#888'} />
+            <FontAwesome5 name="chevron-right" size={20} color="#888" />
           </View>
           {/* <View style={styles.my_action_item}>
             <View style={styles.my_action_item_left}>
@@ -205,7 +201,7 @@ export default function Personnal({navigation}) {
           </View> */}
           <View style={styles.my_action_item}>
             <View style={styles.my_action_item_left}>
-              <FontAwesome5 name={'cog'} color={'#039be5'} size={20} />
+              <FontAwesome5 name="cog" color="#039be5" size={20} />
               <Text
                 style={{
                   marginLeft: 10,
@@ -215,7 +211,7 @@ export default function Personnal({navigation}) {
                 Cài đặt
               </Text>
             </View>
-            <FontAwesome5 name={'chevron-right'} size={20} color={'#888'} />
+            <FontAwesome5 name="chevron-right" size={20} color="#888" />
           </View>
         </View>
       </View>

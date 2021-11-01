@@ -10,24 +10,69 @@ import {
   TouchableOpacity,
   Image,
   ScrollView,
+  Modal,
 } from 'react-native';
 import {paypal, delivery} from '../models/paypal';
 import Paypal from '../components/PaypalCard';
+import CalendarsScreen from './Calendar';
 
 export default function RentalScreen1({navigation, route}) {
   const itemData = route.params.itemData;
   const [checked, setChecked] = useState(0);
   const [checked1, setChecked1] = useState(0);
+  const [calendarVisible, setCalendarVisible] = useState(false);
+
+  const [rentedDate, setRentedDate] = useState('');
+  const [returnedDate, setReturnedDate] = useState('');
+  const [isRental, setIsRental] = useState(false);
+  const [isReturn, setIsReturn] = useState(false);
+
+  const handleRentedDate = val => {
+    setRentedDate(val);
+  };
+  const handleReturnedDate = val => {
+    setReturnedDate(val);
+  };
+
+  const closePopup = val => {
+    setCalendarVisible(val);
+  };
+
+  const openPopup = () => {
+    setCalendarVisible(true);
+  };
+
   return (
     <TouchableWithoutFeedback
       onPress={() => {
         Keyboard.dismiss();
       }}>
       <View style={styles.container}>
-        <View style={styles.header}>
-          <View style={styles.header_icon}>
-            <FontAwesome5 name="arrow-left" color="#fff" size={30} />
+        <Modal
+          animationType={'fade'}
+          transparent
+          visible={calendarVisible}
+          onRequestClose={() => {
+            setCalendarVisible(false);
+          }}>
+          <View style={styles.center_view}>
+            <View style={styles.modal_calendar}>
+              <CalendarsScreen
+                handleRentedDate={handleRentedDate}
+                handleReturnedDate={handleReturnedDate}
+                closePopup={closePopup}
+                isRental={isRental}
+                isReturn={isReturn}
+              />
+            </View>
           </View>
+        </Modal>
+        <View style={styles.header}>
+          <TouchableOpacity
+            onPress={() => navigation.goBack()}
+            style={styles.header_icon}>
+            <FontAwesome5 name="arrow-left" color="#fff" size={20} />
+          </TouchableOpacity>
           <Text style={styles.header_title}>Xác nhận thông tin thuê</Text>
         </View>
         <ScrollView style={{width: '100%'}}>
@@ -80,10 +125,20 @@ export default function RentalScreen1({navigation, route}) {
                   }}>
                   Ngày thuê
                 </Text>
-                <TouchableOpacity activeOpacity={0.8}>
+                <TouchableOpacity
+                  onPress={() => {
+                    setIsRental(true);
+                    setIsReturn(false);
+                    openPopup();
+                  }}
+                  activeOpacity={0.8}>
                   <View style={styles.date_item}>
                     <FontAwesome5 name="calendar-alt" color="#333" size={20} />
-                    <Text>10/11/2021</Text>
+                    {rentedDate ? (
+                      <Text>{rentedDate}</Text>
+                    ) : (
+                      <Text>Chọn thời gian</Text>
+                    )}
                   </View>
                 </TouchableOpacity>
               </View>
@@ -98,10 +153,20 @@ export default function RentalScreen1({navigation, route}) {
                   }}>
                   Ngày trả
                 </Text>
-                <TouchableOpacity activeOpacity={0.8}>
+                <TouchableOpacity
+                  onPress={() => {
+                    setIsReturn(true);
+                    setIsRental(false);
+                    openPopup();
+                  }}
+                  activeOpacity={0.8}>
                   <View style={styles.date_item}>
                     <FontAwesome5 name="calendar-alt" color="#333" size={20} />
-                    <Text>10/12/2021</Text>
+                    {returnedDate ? (
+                      <Text>{returnedDate}</Text>
+                    ) : (
+                      <Text>Chọn thời gian</Text>
+                    )}
                   </View>
                 </TouchableOpacity>
               </View>
@@ -317,11 +382,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   header_icon: {
-    width: '25%',
+    width: '20%',
     paddingLeft: 20,
   },
   header_title: {
-    fontSize: 22,
+    fontSize: 20,
     color: '#fff',
     fontWeight: '500',
   },
@@ -550,5 +615,23 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-evenly',
     borderRadius: 17,
+  },
+  modal_calendar: {
+    width: 400,
+    height: 450,
+    backgroundColor: '#fff',
+    borderRadius: 5,
+  },
+  center_view: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#00000099',
+  },
+  modal: {
+    width: 380,
+    height: 500,
+    backgroundColor: '#fff',
+    borderRadius: 5,
   },
 });

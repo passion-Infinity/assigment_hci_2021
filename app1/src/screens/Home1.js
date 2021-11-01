@@ -19,7 +19,7 @@ export default function Home1({navigation}) {
       <View style={styles.header}>
         <View style={styles.header_left}>
           <View style={styles.header_left_icon}>
-            <FontAwesome5 name="user" color="#000" size={20} />
+            <FontAwesome5 name="user" color="#3968e3" size={20} />
           </View>
         </View>
         <View style={styles.header_rigth}>
@@ -27,13 +27,16 @@ export default function Home1({navigation}) {
             style={{
               fontSize: 16,
               fontWeight: '300',
+              color: '#fff',
+              fontWeight: '400',
             }}>
             Xin chào, Quý khách
           </Text>
           <Text
             style={{
               fontSize: 18,
-              fontWeight: '500',
+              fontWeight: '600',
+              color: '#fff',
             }}>
             Dịch vụ thuê laptop Forento
           </Text>
@@ -103,16 +106,10 @@ export default function Home1({navigation}) {
               activeOpacity={0.4}
               style={styles.purpose_item}>
               <View style={styles.purpose_item_icon}>
-                <FontAwesome5 name="graduation-cap" color="#333" size={25} />
+                <FontAwesome5 name="graduation-cap" color="#3968e3" size={25} />
               </View>
-              <View style={styles.purpose_item_text}>
-                <Text
-                  style={{
-                    fontSize: 18,
-                    color: '#333',
-                    fontWeight: '600',
-                    marginLeft: 20,
-                  }}>
+              <View style={styles.purpose_item_title}>
+                <Text style={styles.purpose_item_text}>
                   Học tập, công việc văn phòng
                 </Text>
               </View>
@@ -127,16 +124,10 @@ export default function Home1({navigation}) {
               activeOpacity={0.4}
               style={styles.purpose_item}>
               <View style={styles.purpose_item_icon}>
-                <FontAwesome5 name="paint-brush" color="#333" size={25} />
+                <FontAwesome5 name="paint-brush" color="#3968e3" size={25} />
               </View>
-              <View style={styles.purpose_item_text}>
-                <Text
-                  style={{
-                    fontSize: 18,
-                    color: '#333',
-                    fontWeight: '600',
-                    marginLeft: 20,
-                  }}>
+              <View style={styles.purpose_item_title}>
+                <Text style={styles.purpose_item_text}>
                   Thiết kế đồ họa, chỉnh sửa video
                 </Text>
               </View>
@@ -151,18 +142,10 @@ export default function Home1({navigation}) {
               activeOpacity={0.4}
               style={styles.purpose_item}>
               <View style={styles.purpose_item_icon}>
-                <FontAwesome5 name="layer-group" color="#333" size={25} />
+                <FontAwesome5 name="layer-group" color="#3968e3" size={25} />
               </View>
-              <View style={styles.purpose_item_text}>
-                <Text
-                  style={{
-                    fontSize: 18,
-                    color: '#333',
-                    fontWeight: '600',
-                    marginLeft: 20,
-                  }}>
-                  Lập trình phần mềm
-                </Text>
+              <View style={styles.purpose_item_title}>
+                <Text style={styles.purpose_item_text}>Lập trình phần mềm</Text>
               </View>
             </TouchableOpacity>
             <TouchableOpacity
@@ -175,16 +158,10 @@ export default function Home1({navigation}) {
               activeOpacity={0.4}
               style={styles.purpose_item}>
               <View style={styles.purpose_item_icon}>
-                <FontAwesome5 name="server" color="#333" size={25} />
+                <FontAwesome5 name="server" color="#3968e3" size={25} />
               </View>
-              <View style={styles.purpose_item_text}>
-                <Text
-                  style={{
-                    fontSize: 18,
-                    color: '#333',
-                    fontWeight: '600',
-                    marginLeft: 20,
-                  }}>
+              <View style={styles.purpose_item_title}>
+                <Text style={styles.purpose_item_text}>
                   Làm server, máy chủ
                 </Text>
               </View>
@@ -199,18 +176,10 @@ export default function Home1({navigation}) {
               activeOpacity={0.4}
               style={styles.purpose_item}>
               <View style={styles.purpose_item_icon}>
-                <FontAwesome5 name="gamepad" color="#333" size={25} />
+                <FontAwesome5 name="gamepad" color="#3968e3" size={25} />
               </View>
-              <View style={styles.purpose_item_text}>
-                <Text
-                  style={{
-                    fontSize: 18,
-                    color: '#333',
-                    fontWeight: '600',
-                    marginLeft: 20,
-                  }}>
-                  Chơi game
-                </Text>
+              <View style={styles.purpose_item_title}>
+                <Text style={styles.purpose_item_text}>Chơi game</Text>
               </View>
             </TouchableOpacity>
           </View>
@@ -227,10 +196,13 @@ const styles = StyleSheet.create({
   },
   header: {
     width: '100%',
-    height: 65,
+    height: 80,
     flexDirection: 'row',
     paddingTop: 15,
     alignItems: 'center',
+    backgroundColor: '#24afff',
+    alignItems: 'center',
+    paddingBottom: 20,
   },
   header_left: {
     width: '22%',
@@ -242,7 +214,8 @@ const styles = StyleSheet.create({
     width: '55%',
     height: '100%',
     borderWidth: 1,
-    borderColor: '#000',
+    borderColor: '#fff',
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 50,
@@ -300,10 +273,17 @@ const styles = StyleSheet.create({
     height: 60,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#ece8fc',
+    // backgroundColor: '#ece8fc',
+    backgroundColor: '#e8edfa',
     borderRadius: 5,
     paddingLeft: 15,
     marginTop: 20,
     borderWidth: 0.3,
+  },
+  purpose_item_text: {
+    fontSize: 18,
+    color: '#333',
+    fontWeight: '600',
+    marginLeft: 20,
   },
 });

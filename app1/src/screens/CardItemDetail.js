@@ -1,37 +1,90 @@
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   Text,
   Image,
   StyleSheet,
   Dimensions,
-  StatusBar,
   Platform,
   TouchableOpacity,
+  Modal,
 } from 'react-native';
 import {
   ImageHeaderScrollView,
   TriggeringView,
 } from 'react-native-image-header-scroll-view';
 
-import * as Animatable from 'react-native-animatable';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import {color} from 'react-native-reanimated';
+import Feather from 'react-native-vector-icons/Feather';
 
 const MIN_HEIGHT = Platform.OS === 'ios' ? 90 : 55;
 const MAX_HEIGHT = 350;
 
 export default function CardItemDetail({navigation, route}) {
   const itemData = route.params.itemData;
-  const navTitleView = useRef(null);
   const [scrollY, setScrollY] = useState(0);
   const handleScroll = event => {
     setScrollY(event.nativeEvent.contentOffset.y);
   };
+  const [show, setShow] = useState(false);
+  const closePopup = () => {
+    setShow(false);
+  };
 
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="light-content" />
+      <Modal
+        visible={show}
+        transparent
+        onRequestClose={closePopup}
+        animationType={'slide'}>
+        <TouchableOpacity onPress={closePopup} style={styles.modal_container}>
+          <View style={styles.modal}>
+            <View style={styles.modal_top}>
+              <View style={styles.modal_top_left}>
+                <View style={styles.modal_top_left_icon}>
+                  <Feather name="check-circle" color="green" size={20} />
+                </View>
+                <Text style={styles.modal_top_left_text}>
+                  Sản phẩm đã được thêm vào giỏ
+                </Text>
+              </View>
+              <TouchableOpacity
+                onPress={closePopup}
+                style={styles.modal_top_right}>
+                <FontAwesome name="times" color="#aaa" size={20} />
+              </TouchableOpacity>
+            </View>
+            <View style={styles.modal_body}>
+              <View style={styles.modal_body_image}>
+                <Image
+                  source={itemData.image}
+                  style={styles.modal_body_image_item}
+                />
+              </View>
+              <View style={styles.modal_body_content}>
+                <Text style={styles.modal_body_content_text}>
+                  {itemData.title}
+                </Text>
+                <Text style={styles.modal_body_content_text}>
+                  {itemData.price}
+                </Text>
+              </View>
+            </View>
+            <View style={styles.modal_footer}>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate('Cart');
+                }}
+                style={styles.modal_footer_button}>
+                <Text style={styles.modal_footer_button_item}>
+                  Xem giỏ hàng
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </TouchableOpacity>
+      </Modal>
       <ImageHeaderScrollView
         onScroll={handleScroll}
         maxHeight={MAX_HEIGHT}
@@ -114,19 +167,20 @@ export default function CardItemDetail({navigation, route}) {
             <TouchableOpacity
               activeOpacity={0.8}
               onPress={() => {
-                navigation.navigate('RentalScreen1', {itemData: itemData});
+                // navigation.navigate('RentalScreen1', {itemData: itemData});
+                setShow(true);
               }}
               style={styles.btn_submit}>
-              <Text style={styles.btn_submit_text}>Tiến hành thuê</Text>
+              <Text style={styles.btn_submit_text}>Chọn thuê</Text>
             </TouchableOpacity>
-            <TouchableOpacity
+            {/* <TouchableOpacity
               activeOpacity={0.8}
               // onPress={() => {
               //   navigation.navigate('RentalScreen1', {itemData: itemData});
               // }}
               style={styles.btn_submit}>
               <Text style={styles.btn_submit_text}>Thêm vào giỏ</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
         </TriggeringView>
         <View style={styles.main_content}>
@@ -373,19 +427,20 @@ export default function CardItemDetail({navigation, route}) {
               <TouchableOpacity
                 activeOpacity={0.8}
                 onPress={() => {
-                  navigation.navigate('RentalScreen1', {itemData: itemData});
+                  // navigation.navigate('RentalScreen1', {itemData: itemData});
+                  setShow(true);
                 }}
                 style={styles.btn_submit}>
-                <Text style={styles.btn_submit_text}>Tiến hành thuê</Text>
+                <Text style={styles.btn_submit_text}>Chọn thuê</Text>
               </TouchableOpacity>
-              <TouchableOpacity
+              {/* <TouchableOpacity
                 activeOpacity={0.8}
                 // onPress={() => {
                 //   navigation.navigate('RentalScreen1', {itemData: itemData});
                 // }}
                 style={styles.btn_submit}>
                 <Text style={styles.btn_submit_text}>Thêm vào giỏ</Text>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
             </View>
           </View>
         </View>
@@ -540,7 +595,7 @@ const styles = StyleSheet.create({
   btn_submit: {
     // position: 'relative',
     marginTop: 20,
-    width: '48%',
+    width: '95%',
     height: 45,
     backgroundColor: '#FF6347',
     alignItems: 'center',
@@ -583,6 +638,81 @@ const styles = StyleSheet.create({
   },
   price_card_sale: {
     fontSize: 18,
+    fontWeight: '600',
+  },
+  modal_container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    backgroundColor: '#00000099',
+  },
+  modal: {
+    width: '100%',
+    height: 260,
+    backgroundColor: '#fff',
+    borderTopRightRadius: 15,
+    borderTopLeftRadius: 15,
+    alignItems: 'center',
+  },
+  modal_top: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    paddingVertical: 15,
+  },
+  modal_top_left: {
+    width: '70%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  modal_top_left_icon: {
+    marginRight: 15,
+  },
+  modal_top_left_text: {
+    fontSize: 16,
+    color: 'green',
+    fontWeight: '600',
+  },
+  modal_body: {
+    flexDirection: 'row',
+    width: '90%',
+    marginTop: 25,
+  },
+  modal_body_image: {
+    width: 90,
+    height: 90,
+  },
+  modal_body_image_item: {
+    width: '100%',
+    height: '100%',
+  },
+  modal_body_content: {
+    width: '72%',
+    marginLeft: 20,
+  },
+  modal_body_content_text: {
+    fontSize: 15,
+    marginBottom: 5,
+  },
+  modal_footer: {
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 30,
+  },
+  modal_footer_button: {
+    width: '90%',
+    height: 42,
+    backgroundColor: '#db231d',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 5,
+  },
+  modal_footer_button_item: {
+    fontSize: 16,
+    color: '#fff',
     fontWeight: '600',
   },
 });

@@ -25,6 +25,7 @@ import HistoryTabNavigation from './screens/HistoryTabNavigation';
 import UpdatePerson from './screens/UpdatePerson';
 import CartScreen from './screens/CartScreen';
 import RulesScreen from './screens/RulesScreen';
+import ReturnDeviceScreen from './screens/ReturnDeviceScreen';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -141,6 +142,13 @@ export default function App() {
         <Stack.Screen
           name="RulesScreen"
           component={RulesScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="ReturnDeviceScreen"
+          component={ReturnDeviceScreen}
           options={{
             headerShown: false,
           }}

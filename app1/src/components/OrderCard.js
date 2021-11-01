@@ -10,7 +10,7 @@ import {
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Star from './Star';
 
-export default function OrderCard({data, navigation}) {
+export default function OrderCard({data, navigation, isReturnedPage}) {
   const [show, setShow] = useState(false);
   const [reject, setReject] = useState(false);
   const rating = () => {
@@ -21,6 +21,9 @@ export default function OrderCard({data, navigation}) {
   };
   const rentalAgain = () => {
     navigation.navigate('CardItemDetail', {itemData: data});
+  };
+  const returnScreen = () => {
+    navigation.navigate('ReturnDeviceScreen', {itemData: data});
   };
   return (
     <View style={styles.order_card_wrapper}>
@@ -107,32 +110,35 @@ export default function OrderCard({data, navigation}) {
                   </Text>
                 </TouchableOpacity>
               </View>
-              <View style={styles.button_wrapper}>
-                <TouchableOpacity
-                  onPress={() => {
-                    setReject(false);
-                  }}
-                  activeOpacity={0.4}
-                  style={[styles.button, styles.cancel]}>
-                  <Text style={[styles.button_text, styles.cancel_text]}>
-                    Đóng
-                  </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={() => {
-                    setReject(false);
-                  }}
-                  activeOpacity={0.4}
-                  style={styles.button}>
-                  <Text style={styles.button_text}>Xác nhận</Text>
-                </TouchableOpacity>
-              </View>
+              {isReturnedPage ? null : (
+                <View style={styles.button_wrapper}>
+                  <TouchableOpacity
+                    onPress={() => {
+                      setReject(false);
+                    }}
+                    activeOpacity={0.4}
+                    style={[styles.button, styles.cancel]}>
+                    <Text style={[styles.button_text, styles.cancel_text]}>
+                      Đóng
+                    </Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={() => {
+                      setReject(false);
+                    }}
+                    activeOpacity={0.4}
+                    style={styles.button}>
+                    <Text style={styles.button_text}>Xác nhận</Text>
+                  </TouchableOpacity>
+                </View>
+              )}
             </View>
           </View>
         </View>
       </Modal>
-      <View style={styles.top}>
-        {/* <Text
+      {!isReturnedPage && (
+        <View style={styles.top}>
+          {/* <Text
           style={{
             fontSize: 18,
             fontWeight: '600',
@@ -142,30 +148,32 @@ export default function OrderCard({data, navigation}) {
           }}>
           {data.orderStatusName}
         </Text> */}
-        {data.orderStatusName == 'Đang thuê' ? (
-          <Text
-            style={{
-              fontSize: 18,
-              fontWeight: '600',
-              color: 'green',
-              lineHeight: 40,
-              marginLeft: 12,
-            }}>
-            {data.orderStatusName}
-          </Text>
-        ) : (
-          <Text
-            style={{
-              fontSize: 18,
-              fontWeight: '600',
-              color: '#8e9194',
-              lineHeight: 40,
-              marginLeft: 12,
-            }}>
-            {data.orderStatusName}
-          </Text>
-        )}
-      </View>
+          {data.orderStatusName == 'Đang thuê' ? (
+            <Text
+              style={{
+                fontSize: 18,
+                fontWeight: '600',
+                color: 'green',
+                lineHeight: 40,
+                marginLeft: 12,
+              }}>
+              {data.orderStatusName}
+            </Text>
+          ) : (
+            <Text
+              style={{
+                fontSize: 18,
+                fontWeight: '600',
+                color: '#8e9194',
+                lineHeight: 40,
+                marginLeft: 12,
+              }}>
+              {data.orderStatusName}
+            </Text>
+          )}
+        </View>
+      )}
+
       <View style={styles.content}>
         <View style={styles.image_wrapper}>
           <Image style={styles.image} source={data.orderImage} />
@@ -176,51 +184,61 @@ export default function OrderCard({data, navigation}) {
           </Text>
           <Text style={styles.quantity}>Số lượng: {data.orderQuantity}</Text>
           <Text style={styles.price}>Tổng tiền: {data.orderTotal}</Text>
-          <Text style={styles.time}>Thời gian: {data.orderTime} </Text>
+          {isReturnedPage ? null : (
+            <Text style={styles.time}>Thời gian: {data.orderTime} </Text>
+          )}
           <View
             style={{
               width: 220,
               marginTop: 5,
             }}>
-            <Text style={styles.address}>
-              Địa chỉ: Đường khánh bình 33, Uyên Hưng, Tân Uyên, Bình Dương{' '}
-            </Text>
+            {isReturnedPage ? null : (
+              <Text style={styles.address}>
+                Địa chỉ: Đường khánh bình 33, Uyên Hưng, Tân Uyên, Bình Dương{' '}
+              </Text>
+            )}
           </View>
         </View>
       </View>
-      <View style={styles.bottom}>
-        {(data.orderStatus == 'da_thue' || data.orderStatus == 'dang_thue') && (
-          <TouchableOpacity
-            onPress={rating}
-            activeOpacity={0.4}
-            style={styles.button}>
-            <Text style={styles.button_text}>Đánh giá</Text>
-          </TouchableOpacity>
-        )}
-        {data.orderStatus == 'dang_xu_ly' && (
-          <TouchableOpacity
-            onPress={cancel}
-            activeOpacity={0.8}
-            style={[styles.button, styles.cancel1]}>
-            <Text style={[styles.button_text, styles.cancel_text]}>
-              Hủy đơn
-            </Text>
-          </TouchableOpacity>
-        )}
-        {data.orderStatus == 'da_thue' && (
-          <TouchableOpacity
-            onPress={rentalAgain}
-            activeOpacity={0.8}
-            style={styles.button}>
-            <Text style={[styles.button_text]}>Thuê lại</Text>
-          </TouchableOpacity>
-        )}
-        {data.orderStatus == 'dang_thue' && (
-          <TouchableOpacity activeOpacity={0.8} style={styles.button}>
-            <Text style={[styles.button_text]}>Trả máy</Text>
-          </TouchableOpacity>
-        )}
-      </View>
+      {isReturnedPage ? null : (
+        <View style={styles.bottom}>
+          {(data.orderStatus == 'da_thue' ||
+            data.orderStatus == 'dang_thue') && (
+            <TouchableOpacity
+              onPress={rating}
+              activeOpacity={0.4}
+              style={styles.button}>
+              <Text style={styles.button_text}>Đánh giá</Text>
+            </TouchableOpacity>
+          )}
+          {data.orderStatus == 'dang_xu_ly' && (
+            <TouchableOpacity
+              onPress={cancel}
+              activeOpacity={0.8}
+              style={[styles.button, styles.cancel1]}>
+              <Text style={[styles.button_text, styles.cancel_text]}>
+                Hủy đơn
+              </Text>
+            </TouchableOpacity>
+          )}
+          {data.orderStatus == 'da_thue' && (
+            <TouchableOpacity
+              onPress={rentalAgain}
+              activeOpacity={0.8}
+              style={styles.button}>
+              <Text style={[styles.button_text]}>Thuê lại</Text>
+            </TouchableOpacity>
+          )}
+          {data.orderStatus == 'dang_thue' && (
+            <TouchableOpacity
+              onPress={returnScreen}
+              activeOpacity={0.8}
+              style={styles.button}>
+              <Text style={[styles.button_text]}>Trả máy</Text>
+            </TouchableOpacity>
+          )}
+        </View>
+      )}
     </View>
   );
 }

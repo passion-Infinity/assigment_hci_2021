@@ -71,28 +71,29 @@ export default function HomeTabNavigation({navigation}) {
 
   return (
     <Tab.Navigator
-      screenOptions={{
-        tabBarShowLabel: false,
-        tabBarStyle: {
-          backgroundColor: '#fff',
-          position: 'absolute',
-          bottom: 20,
-          marginHorizontal: 20,
-          alignItems: 'center',
-          justifyContent: 'center',
-          // Max Height...
-          height: 60,
-          borderRadius: 10,
-          // Shadow...
-          shadowColor: '#000',
-          shadowOpacity: 0.06,
-          shadowOffset: {
-            width: 10,
-            height: 10,
-          },
-          paddingHorizontal: 20,
-        },
-      }}>
+    // screenOptions={{
+    //   tabBarShowLabel: false,
+    //   tabBarStyle: {
+    //     backgroundColor: '#fff',
+    //     position: 'absolute',
+    //     bottom: 20,
+    //     marginHorizontal: 20,
+    //     alignItems: 'center',
+    //     justifyContent: 'center',
+    //     // Max Height...
+    //     height: 60,
+    //     borderRadius: 10,
+    //     // Shadow...
+    //     shadowColor: '#000',
+    //     shadowOpacity: 0.06,
+    //     shadowOffset: {
+    //       width: 10,
+    //       height: 10,
+    //     },
+    //     paddingHorizontal: 20,
+    //   },
+    // }}
+    >
       {
         // Tab Screens....
         // Tab ICons....
@@ -102,12 +103,14 @@ export default function HomeTabNavigation({navigation}) {
         component={Home1}
         options={{
           headerShown: false,
+          title: 'Trang chủ',
+          tabBarLabelStyle: {fontSize: 14},
           tabBarIcon: ({focused}) => (
             <View>
               <FontAwesome5
                 name="home"
                 size={focused ? 28 : 22}
-                color={focused ? 'red' : 'gray'}></FontAwesome5>
+                color={focused ? '#24afff' : '#aaa'}></FontAwesome5>
             </View>
           ),
         }}></Tab.Screen>
@@ -116,13 +119,21 @@ export default function HomeTabNavigation({navigation}) {
         name={'HistoryTabNavigation'}
         component={HistoryTabNavigation}
         options={{
-          title: 'Đơn hàng của tôi',
+          tabBarLabelStyle: {fontSize: 14},
+          headerStyle: {
+            backgroundColor: '#24afff',
+            height: 80,
+          },
+          headerTitle: 'Đơn hàng của tôi',
+          headerTintColor: '#fff',
+          title: 'Lịch sử',
+          tabBarStyle: {backgroundColor: '#fff'},
           tabBarIcon: ({focused}) => (
             <View>
               <FontAwesome5
                 name="list-alt"
                 size={focused ? 28 : 22}
-                color={focused ? 'red' : 'gray'}></FontAwesome5>
+                color={focused ? '#24afff' : '#aaa'}></FontAwesome5>
             </View>
           ),
         }}></Tab.Screen>
@@ -135,6 +146,9 @@ export default function HomeTabNavigation({navigation}) {
         name={'ActionButton'}
         component={EmptyScreen}
         options={{
+          title: 'Giỏ hàng',
+          tabBarLabelStyle: {fontSize: 14},
+          tabBarStyle: {backgroundColor: '#fff'},
           tabBarIcon: ({focused}) => (
             <TouchableOpacity
               onPress={() => {
@@ -142,15 +156,15 @@ export default function HomeTabNavigation({navigation}) {
               }}>
               <View
                 style={{
-                  width: 60,
-                  height: 60,
+                  width: 55,
+                  height: 55,
                   backgroundColor: 'red',
                   borderRadius: 30,
                   justifyContent: 'center',
                   alignItems: 'center',
-                  marginBottom: Platform.OS == 'android' ? 50 : 30,
+                  marginBottom: Platform.OS == 'android' ? 30 : 30,
                 }}>
-                <FontAwesome5 name="shopping-cart" size={30} color={'#fff'} />
+                <FontAwesome5 name="shopping-cart" size={20} color={'#fff'} />
               </View>
             </TouchableOpacity>
           ),
@@ -160,12 +174,15 @@ export default function HomeTabNavigation({navigation}) {
         name={'Chat'}
         component={Chat}
         options={{
+          title: 'Nhắn tin',
+          tabBarLabelStyle: {fontSize: 14},
+          tabBarStyle: {backgroundColor: '#fff'},
           tabBarIcon: ({focused}) => (
             <View>
               <FontAwesome5
                 name="comments"
                 size={focused ? 28 : 22}
-                color={focused ? 'red' : 'gray'}></FontAwesome5>
+                color={focused ? '#24afff' : '#aaa'}></FontAwesome5>
             </View>
           ),
         }}></Tab.Screen>
@@ -174,13 +191,16 @@ export default function HomeTabNavigation({navigation}) {
         name={'Personnal'}
         component={Personnal}
         options={{
+          title: 'Cá nhân',
+          tabBarLabelStyle: {fontSize: 14},
           headerShown: false,
+          tabBarStyle: {backgroundColor: '#fff'},
           tabBarIcon: ({focused}) => (
             <View>
               <FontAwesome5
                 name="user-alt"
                 size={focused ? 28 : 22}
-                color={focused ? 'red' : 'gray'}></FontAwesome5>
+                color={focused ? '#24afff' : '#aaa'}></FontAwesome5>
             </View>
           ),
         }}></Tab.Screen>

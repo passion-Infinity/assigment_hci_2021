@@ -1,12 +1,41 @@
 import React, {useState, Fragment} from 'react';
-import {StyleSheet, ScrollView, Text} from 'react-native';
+import {
+  StyleSheet,
+  ScrollView,
+  View,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
 import {Calendar} from 'react-native-calendars';
 
-const INITIAL_DATE = '2020-02-02';
+const date = new Date();
+const formatDate = () => {
+  let day = date.getDate();
+  let month = date.getMonth() + 1;
+  let year = date.getFullYear();
+  if (day < 10) {
+    day = '0' + day;
+  }
+  if (month < 10) {
+    month = '0' + month;
+  }
+  return `${year}-${month}-${day}`;
+};
+const INITIAL_DATE = formatDate();
 
-const CalendarsScreen = () => {
+const CalendarsScreen = props => {
   const [selected, setSelected] = useState(INITIAL_DATE);
   const [showMarkedDatesExamples, setShowMarkedDatesExamples] = useState(false);
+
+  const changeDate = () => {
+    if (props.isRental) {
+      props.handleRentedDate(selected);
+    } else if (props.isReturn) {
+      props.handleReturnedDate(selected);
+    } else {
+      props.handleDate(selected);
+    }
+  };
 
   const onDayPress = day => {
     setSelected(day.dateString);
@@ -29,6 +58,26 @@ const CalendarsScreen = () => {
             },
           }}
         />
+        <View style={styles.button}>
+          <TouchableOpacity
+            style={[styles.button_item, styles.button_item_close]}
+            onPress={() => {
+              props.closePopup(false);
+            }}>
+            <Text style={styles.button_item_text}>Đóng</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.button_item}
+            onPress={() => {
+              changeDate();
+              props.closePopup(false);
+            }}>
+            <Text
+              style={[styles.button_item_text, styles.button_item_text_apply]}>
+              Áp dụng
+            </Text>
+          </TouchableOpacity>
+        </View>
       </Fragment>
     );
   };
@@ -86,5 +135,31 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     marginHorizontal: -4,
     padding: 8,
+  },
+  button: {
+    width: '100%',
+    marginTop: 30,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    paddingRight: 20,
+  },
+  button_item: {
+    width: 100,
+    height: 38,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#1976d2',
+    borderRadius: 5,
+  },
+  button_item_close: {
+    backgroundColor: '#ddd',
+    marginRight: 15,
+  },
+  button_item_text: {
+    fontWeight: '600',
+  },
+  button_item_text_apply: {
+    color: '#fff',
   },
 });

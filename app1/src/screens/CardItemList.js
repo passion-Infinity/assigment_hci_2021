@@ -8,6 +8,7 @@ import {
   ScrollView,
   Keyboard,
   TouchableWithoutFeedback,
+  TouchableOpacity,
   Modal,
   TextInput,
 } from 'react-native';
@@ -161,32 +162,22 @@ export default function CardItemList({navigation, route}) {
         </View>
       </Modal>
 
-      <View style={styles.header_card}>
-        <View style={styles.header_card_top}>
-          <Pressable
-            onPress={() => {
-              navigation.goBack();
-            }}>
-            <FontAwesome5 name={'chevron-left'} size={25} color="#999" />
-          </Pressable>
-          <Text
-            style={{
-              fontSize: 20,
-              fontWeight: 'bold',
-              marginLeft: 20,
-              color: '#333',
-            }}>
-            {title}
-          </Text>
-          <Pressable
-            style={{position: 'absolute', right: 0}}
-            onPress={() => {
-              navigation.navigate('Cart');
-            }}>
-            <FontAwesome5 name={'shopping-cart'} size={25} color="#333" />
-          </Pressable>
-        </View>
+      <View style={styles.header}>
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+          style={styles.header_icon}>
+          <FontAwesome5 name="arrow-left" color="#fff" size={20} />
+        </TouchableOpacity>
+        <Text style={styles.header_title}>{title}</Text>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('Cart');
+          }}
+          style={styles.header_icon}>
+          <FontAwesome5 name="shopping-cart" color="#fff" size={20} />
+        </TouchableOpacity>
       </View>
+
       <View style={styles.category}>
         <Text style={styles.title}>Thương hiệu</Text>
         <View style={styles.brand_list}>
@@ -197,15 +188,7 @@ export default function CardItemList({navigation, route}) {
             data={brand}
             renderItem={({item}) => (
               <View style={styles.brand_item}>
-                <Text
-                  style={{
-                    fontSize: 16,
-                    fontWeight: '600',
-                    color: '#999',
-                    textAlign: 'center',
-                  }}>
-                  {item.name}
-                </Text>
+                <Text style={styles.brand_item_text}>{item.name}</Text>
               </View>
             )}
           />
@@ -242,24 +225,30 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fafafa',
   },
-  header_card: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 10,
-    alignItems: 'center',
-    paddingTop: 20,
-    paddingBottom: 20,
-  },
-  header_card_top: {
+  header: {
     width: '100%',
+    height: 80,
+    backgroundColor: '#24afff',
     flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 15,
+  },
+  header_icon: {
+    width: '15%',
+    paddingLeft: 15,
+  },
+  header_title: {
+    width: '70%',
+    fontSize: 20,
+    color: '#fff',
+    fontWeight: '500',
   },
   category: {
     paddingLeft: 10,
     paddingBottom: 30,
   },
   title: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 'bold',
     color: '#333',
     marginBottom: 15,
@@ -274,7 +263,13 @@ const styles = StyleSheet.create({
     marginRight: 15,
     borderWidth: 1,
     borderBottomWidth: 3,
-    borderColor: '#ddd',
+    borderColor: '#24afff',
+  },
+  brand_item_text: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#999',
+    textAlign: 'center',
   },
   filter: {
     flexDirection: 'row',
