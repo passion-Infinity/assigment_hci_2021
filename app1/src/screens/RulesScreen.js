@@ -22,6 +22,13 @@ export default function RulesScreen() {
         </Text>
       </View>
       <View style={styles.body}>
+        <Text style={styles.title}>Khi thuê sản phẩm</Text>
+        <View style={styles.content}>
+          <Text style={styles.item}>- Có thể thuê nhiều thiết bị cùng lúc</Text>
+          <Text style={styles.item}>
+            - Thời gian thuê chung cho tất cả thiết bị của một đơn hàng
+          </Text>
+        </View>
         <Text style={styles.title}>Khi nhận sản phẩm</Text>
         <View style={styles.content}>
           <Text style={styles.item}>
@@ -35,7 +42,7 @@ export default function RulesScreen() {
         <View style={styles.content}>
           <Text style={styles.item}>
             - Không hoàn trả chi phí khi muốn dừng thuê hoặc trả máy khi chưa
-            hết hạng hợp đồng
+            hết hạn hợp đồng
           </Text>
         </View>
         <Text style={styles.title}>Khi hết hạn hợp đồng</Text>

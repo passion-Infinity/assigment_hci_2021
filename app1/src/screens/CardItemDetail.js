@@ -330,7 +330,7 @@ export default function CardItemDetail({navigation, route}) {
 
           <View style={styles.main_content}>
             <View style={[styles.sectionLarge]}>
-              <Text style={styles.section_title}>Giá thuê chi tiết</Text>
+              <Text style={styles.section_title}>Giá thuê ưu đãi</Text>
               <View style={styles.price_card}>
                 <View style={styles.price_card_item}>
                   <Text style={styles.price_card_title}>

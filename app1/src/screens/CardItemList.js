@@ -260,8 +260,18 @@ export default function CardItemList({navigation, route}) {
             showsHorizontalScrollIndicator={false}
             data={brand}
             renderItem={({item}) => (
-              <View style={styles.brand_item}>
-                <Text style={styles.brand_item_text}>{item.name}</Text>
+              <View
+                style={[
+                  styles.brand_item,
+                  item.id === 0 ? styles.brand_item_active : '',
+                ]}>
+                <Text
+                  style={[
+                    styles.brand_item_text,
+                    item.id === 0 ? styles.brand_item_text_active : '',
+                  ]}>
+                  {item.name}
+                </Text>
               </View>
             )}
           />
@@ -338,11 +348,19 @@ const styles = StyleSheet.create({
     borderBottomWidth: 3,
     borderColor: '#24afff',
   },
+  brand_item_active: {
+    backgroundColor: '#24afff',
+  },
   brand_item_text: {
     fontSize: 16,
     fontWeight: '600',
     color: '#999',
     textAlign: 'center',
+  },
+  brand_item_text_active: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 20,
   },
   filter: {
     flexDirection: 'row',

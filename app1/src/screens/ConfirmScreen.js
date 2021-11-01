@@ -11,6 +11,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 export default function Confirm({navigation, route}) {
   const itemData = route.params.itemData;
+  const method = route.params.method;
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -63,45 +64,68 @@ export default function Confirm({navigation, route}) {
               }}>
               <Text style={styles.title}>Thông tin đơn hàng</Text>
             </View>
-            <View style={styles.customer}>
-              <Text style={styles.label}>Tên thiết bị: </Text>
-              <Text style={styles.customer_value}>{itemData.title}</Text>
+            <View style={styles.product_item}>
+              <View style={styles.customer}>
+                <Text style={styles.label}>Tên thiết bị: </Text>
+                <Text style={styles.customer_value}>{itemData.title}</Text>
+              </View>
+              <View style={styles.customer}>
+                <Text style={styles.label}>Số lượng: </Text>
+                <Text style={styles.customer_value}>8</Text>
+              </View>
+              <View style={styles.customer}>
+                <Text style={styles.label}>Tình trạng thiết bị: </Text>
+                <Text style={styles.customer_value}>
+                  Bình thường, không trày xước
+                </Text>
+              </View>
             </View>
-            <View style={styles.customer}>
-              <Text style={styles.label}>Số lượng: </Text>
-              <Text style={styles.customer_value}>8</Text>
+            <View style={styles.product_item}>
+              <View style={styles.customer}>
+                <Text style={styles.label}>Tên thiết bị: </Text>
+                <Text style={styles.customer_value}>{itemData.title}</Text>
+              </View>
+              <View style={styles.customer}>
+                <Text style={styles.label}>Số lượng: </Text>
+                <Text style={styles.customer_value}>8</Text>
+              </View>
+              <View style={styles.customer}>
+                <Text style={styles.label}>Tình trạng thiết bị: </Text>
+                <Text style={styles.customer_value}>
+                  Bình thường, không trày xước
+                </Text>
+              </View>
             </View>
-            <View style={styles.customer}>
-              <Text style={styles.label}>Tình trạng thiết bị: </Text>
-              <Text style={styles.customer_value}>
-                Bình thường, không trày xước
-              </Text>
-            </View>
-            <View style={styles.customer}>
-              <Text style={styles.label}>Phương thức thanh toán: </Text>
-              <Text style={styles.customer_value}>
-                Thanh toán khi nhận hàng
-              </Text>
-            </View>
-            <View style={styles.customer}>
-              <Text style={styles.label}>Hình thức giao hàng: </Text>
-              <Text style={styles.customer_value}>Giao hàng tiết kiệm</Text>
-            </View>
-            <View style={styles.customer}>
-              <Text style={styles.label}>Phí vận chuyển: </Text>
-              <Text style={styles.customer_value}>100.000đ</Text>
-            </View>
-            {/* <View style={styles.customer}>
+            <View
+              style={{
+                marginTop: 10,
+              }}>
+              <View style={styles.customer}>
+                <Text style={styles.label}>Phương thức thanh toán: </Text>
+                <Text style={styles.customer_value}>
+                  Thanh toán khi nhận hàng
+                </Text>
+              </View>
+              <View style={styles.customer}>
+                <Text style={styles.label}>Hình thức giao hàng: </Text>
+                <Text style={styles.customer_value}>Giao hàng tiết kiệm</Text>
+              </View>
+              <View style={styles.customer}>
+                <Text style={styles.label}>Phí vận chuyển: </Text>
+                <Text style={styles.customer_value}>100.000đ</Text>
+              </View>
+              {/* <View style={styles.customer}>
               <Text style={styles.label}>Áp dụng khuyến mãi: </Text>
               <Text style={styles.customer_value}>30%</Text>
             </View> */}
-            <View style={styles.customer}>
-              <Text style={styles.label}>Thời gian giao hàng: </Text>
-              <Text style={styles.customer_value}>20/11/2021</Text>
-            </View>
-            <View style={styles.customer}>
-              <Text style={styles.label}>Thời gian trả hàng: </Text>
-              <Text style={styles.customer_value}>18/12/2021</Text>
+              <View style={styles.customer}>
+                <Text style={styles.label}>Thời gian giao hàng: </Text>
+                <Text style={styles.customer_value}>20/11/2021</Text>
+              </View>
+              <View style={styles.customer}>
+                <Text style={styles.label}>Thời gian trả hàng: </Text>
+                <Text style={styles.customer_value}>18/12/2021</Text>
+              </View>
             </View>
           </View>
           <View style={styles.note_wrapper}>
@@ -131,7 +155,7 @@ export default function Confirm({navigation, route}) {
             <View style={styles.btn_submit}>
               <TouchableOpacity
                 onPress={() => {
-                  navigation.navigate('Success');
+                  navigation.navigate('Success', {method: method});
                 }}>
                 <Text style={styles.btn_submit_text}>Xác nhận thanh toán</Text>
               </TouchableOpacity>
@@ -251,5 +275,9 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '600',
     color: '#fff',
+  },
+  product_item: {
+    borderWidth: 0.6,
+    marginTop: 10,
   },
 });

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {
   StyleSheet,
@@ -26,6 +26,10 @@ export default function RentalScreen1({navigation, route}) {
   const [returnedDate, setReturnedDate] = useState('');
   const [isRental, setIsRental] = useState(false);
   const [isReturn, setIsReturn] = useState(false);
+
+  const [methodPayment, setMethodPayment] = useState('online');
+
+  console.log(methodPayment);
 
   const handleRentedDate = val => {
     setRentedDate(val);
@@ -287,6 +291,9 @@ export default function RentalScreen1({navigation, route}) {
                     <View key={item.id}>
                       {checked === index ? (
                         <TouchableOpacity
+                          onPress={() => {
+                            setMethodPayment(item.method);
+                          }}
                           activeOpacity={0.8}
                           style={styles.btn_radio}>
                           <Image
@@ -301,6 +308,7 @@ export default function RentalScreen1({navigation, route}) {
                           style={styles.btn_radio}
                           onPress={() => {
                             setChecked(index);
+                            setMethodPayment(item.method);
                           }}>
                           <Image
                             style={styles.img_radio}
@@ -389,7 +397,10 @@ export default function RentalScreen1({navigation, route}) {
           activeOpacity={0.4}
           style={styles.btn_submit}
           onPress={() => {
-            navigation.navigate('Confirm', {itemData: itemData});
+            navigation.navigate('Confirm', {
+              itemData: itemData,
+              method: methodPayment,
+            });
           }}>
           <Text style={styles.btn_submit_text}>Thuê</Text>
         </TouchableOpacity>

@@ -2,7 +2,11 @@ import React from 'react';
 import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-export default function Success({navigation}) {
+const online = 'Thanh toán online thành công';
+const offline = 'Đơn hàng của quý khách đang được xử lý';
+
+export default function Success({navigation, route}) {
+  const method = route.params.method;
   return (
     <View style={styles.container}>
       <View style={styles.icon_wrapper}>
@@ -14,7 +18,7 @@ export default function Success({navigation}) {
           fontWeight: '500',
           marginTop: 15,
         }}>
-        Thanh toán thành công
+        {method === 'online' ? online : offline}
       </Text>
       <TouchableOpacity
         onPress={() => {

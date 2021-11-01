@@ -15,9 +15,11 @@ import {
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import OrderCard from '../components/OrderCard';
 import CalendarsScreen from './Calendar';
+import {allOrders} from '../models/order';
 
 export default function ReturnDeviceScreen({route, navigation}) {
   const data = route.params.itemData;
+  const data1 = allOrders[3];
   const [calendarVisible, setCalendarVisible] = useState(false);
   const [date, setDate] = useState('');
   const handleDate = val => {
@@ -192,6 +194,11 @@ export default function ReturnDeviceScreen({route, navigation}) {
             isReturnedPage={true}
             navigation={navigation}
           />
+          <OrderCard
+            data={data1}
+            isReturnedPage={true}
+            navigation={navigation}
+          />
           <View style={styles.form_date}>
             <View style={styles.form_date_item}>
               <Text style={styles.form_date_item_title}>Thời gian trả:</Text>
@@ -262,7 +269,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   header_icon: {
-    width: '20%',
+    width: '15%',
     paddingLeft: 20,
   },
   header_title: {
