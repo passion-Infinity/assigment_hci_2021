@@ -14,7 +14,7 @@ export default class Splash extends React.Component {
           source={require('./assets/animation/Splash.json')}
           autoPlay
           loop={false}
-          speed={0.8}
+          speed={1}
           onAnimationFinish={() => {
             console.log('animation is finish');
             this.props.navigation.replace('GetStarted1');

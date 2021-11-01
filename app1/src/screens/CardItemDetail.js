@@ -16,8 +16,9 @@ import {
 
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-const MIN_HEIGHT = Platform.OS === 'ios' ? 90 : 55;
+const MIN_HEIGHT = Platform.OS === 'ios' ? 90 : 70;
 const MAX_HEIGHT = 350;
 
 export default function CardItemDetail({navigation, route}) {
@@ -99,16 +100,38 @@ export default function CardItemDetail({navigation, route}) {
         renderForeground={() => (
           <View style={styles.titleContainer}>
             <Text style={styles.imageTitle}>{itemData.title}</Text>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.goBack();
+              }}
+              style={styles.renderForeground_icon}>
+              <FontAwesome5 name="arrow-left" color="#333" size={22} />
+            </TouchableOpacity>
           </View>
         )}
         renderFixedForeground={() => (
-          <Text numberOfLines={2} style={styles.navTitle}>
+          <View numberOfLines={2}>
             {scrollY >= 260 ? (
-              <Text style={styles.navTitle}>{itemData.title}</Text>
+              <View style={styles.renderFixedForeground}>
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.goBack();
+                  }}
+                  style={styles.renderFixedForeground_icon}>
+                  <FontAwesome5 name="arrow-left" color="#fff" size={20} />
+                </TouchableOpacity>
+                <View
+                  style={{
+                    width: 360,
+                    marginLeft: 20,
+                  }}>
+                  <Text style={styles.navTitle}>{itemData.title}</Text>
+                </View>
+              </View>
             ) : (
               <Text></Text>
             )}
-          </Text>
+          </View>
         )}>
         <TriggeringView style={styles.section}>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
@@ -529,7 +552,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     backgroundColor: 'transparent',
     marginTop: 12,
-    marginLeft: 10,
+    marginLeft: 20,
   },
   sectionLarge: {
     minHeight: 300,
@@ -716,5 +739,18 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#fff',
     fontWeight: '600',
+  },
+  renderForeground_icon: {
+    position: 'absolute',
+    top: 10,
+    left: 25,
+  },
+  renderFixedForeground: {
+    flexDirection: 'row',
+  },
+  renderFixedForeground_icon: {
+    position: 'relative',
+    top: 15,
+    left: 15,
   },
 });
