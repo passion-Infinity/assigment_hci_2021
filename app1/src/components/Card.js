@@ -3,7 +3,13 @@ import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 
 import StarRating from './StarRating';
 
-export default function Card({navigation, itemData}) {
+export default function Card(props) {
+  const itemData = props.itemData;
+  const navigation = props.navigation;
+  const onClickCart = () => {
+    props.getItemData(itemData);
+  };
+
   return (
     <View style={styles.card}>
       <View style={styles.cardImgWrapper}>
@@ -39,6 +45,8 @@ export default function Card({navigation, itemData}) {
           <TouchableOpacity
             onPress={() => {
               // navigation.navigate('RentalScreen', {itemData: itemData});
+              onClickCart();
+              props.openPopup(true);
             }}>
             <Text style={[styles.btn, {marginLeft: 10}]}>Thêm vào giỏ</Text>
           </TouchableOpacity>

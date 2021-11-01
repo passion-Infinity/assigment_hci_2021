@@ -176,6 +176,11 @@ export default function HomeTabNavigation({navigation}) {
         options={{
           title: 'Nhắn tin',
           tabBarLabelStyle: {fontSize: 14},
+          headerStyle: {
+            backgroundColor: '#24afff',
+            height: 60,
+          },
+          headerTintColor: '#fff',
           tabBarStyle: {backgroundColor: '#fff'},
           tabBarIcon: ({focused}) => (
             <View>

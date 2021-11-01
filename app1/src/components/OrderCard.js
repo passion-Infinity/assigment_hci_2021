@@ -99,6 +99,13 @@ export default function OrderCard({data, navigation, isReturnedPage}) {
                   Bạn có muốn cho chúng tôi biết lý do bạn muốn hủy đơn hàng là
                   gì?
                 </Text>
+                <Text
+                  style={{
+                    textAlign: 'center',
+                    fontSize: 15,
+                  }}>
+                  Nếu bạn đã thanh toán online thì sẽ được hoàn lại tiền
+                </Text>
                 <TouchableOpacity activeOpacity={0.4}>
                   <Text
                     style={{
@@ -358,7 +365,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   modal_content: {
-    height: 100,
+    height: 130,
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 20,

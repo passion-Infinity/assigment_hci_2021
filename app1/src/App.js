@@ -26,6 +26,7 @@ import UpdatePerson from './screens/UpdatePerson';
 import CartScreen from './screens/CartScreen';
 import RulesScreen from './screens/RulesScreen';
 import ReturnDeviceScreen from './screens/ReturnDeviceScreen';
+import ConfirmReturnScreen from './screens/ConfirmReturnScreen';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -149,6 +150,13 @@ export default function App() {
         <Stack.Screen
           name="ReturnDeviceScreen"
           component={ReturnDeviceScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="ConfirmReturn"
+          component={ConfirmReturnScreen}
           options={{
             headerShown: false,
           }}

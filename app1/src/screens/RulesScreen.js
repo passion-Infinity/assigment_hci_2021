@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   body: {
-    paddingHorizontal: 8,
+    paddingHorizontal: 15,
     paddingTop: 25,
   },
   title: {

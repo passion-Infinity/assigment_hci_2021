@@ -28,6 +28,8 @@ export default function ReturnDeviceScreen({route, navigation}) {
     setCalendarVisible(val);
   };
 
+  const [reject, setReject] = useState(false);
+
   console.log(date);
 
   return (
@@ -42,6 +44,70 @@ export default function ReturnDeviceScreen({route, navigation}) {
         <View style={styles.center_view}>
           <View style={styles.modal_calendar}>
             <CalendarsScreen handleDate={handleDate} closePopup={closePopup} />
+          </View>
+        </View>
+      </Modal>
+
+      <Modal
+        animationType={'fade'}
+        transparent
+        visible={reject}
+        onRequestClose={() => {
+          setReject(false);
+        }}>
+        <View style={styles.center_view}>
+          <View style={styles.modal_1}>
+            <View style={styles.modal_header}>
+              <Text
+                style={{
+                  fontSize: 16,
+                  color: '#fff',
+                  fontWeight: 'bold',
+                }}>
+                Bạn muốn trả máy trước thời hạn?
+              </Text>
+            </View>
+            <View style={styles.modal_body}>
+              <FontAwesome5
+                style={{
+                  position: 'relative',
+                  top: 15,
+                }}
+                name="frown"
+                color="red"
+                size={45}
+              />
+              <View style={styles.modal_content}>
+                <Text
+                  style={{
+                    textAlign: 'center',
+                    fontSize: 15,
+                  }}>
+                  Bạn thực sự muốn trả máy trước thời hạn?
+                </Text>
+              </View>
+
+              <View style={styles.button_wrapper}>
+                <TouchableOpacity
+                  onPress={() => {
+                    setReject(false);
+                  }}
+                  activeOpacity={0.4}
+                  style={[styles.button, styles.cancel]}>
+                  <Text style={[styles.button_text, styles.cancel_text]}>
+                    Đóng
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate('ConfirmReturn');
+                  }}
+                  activeOpacity={0.4}
+                  style={styles.button}>
+                  <Text style={styles.button_text}>Xác nhận</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
           </View>
         </View>
       </Modal>
@@ -156,7 +222,23 @@ export default function ReturnDeviceScreen({route, navigation}) {
               />
             </View>
           </View>
-          <TouchableOpacity activeOpacity={0.4} style={styles.btn_submit}>
+          <View style={styles.note}>
+            <View style={styles.note_title}>
+              <Text style={styles.note_title_text}>Lưu ý:</Text>
+            </View>
+            <View style={styles.note_content}>
+              <Text>
+                Khách hàng sẽ không được hoàn lại tiền khi trả máy trước thời
+                hạn
+              </Text>
+            </View>
+          </View>
+          <TouchableOpacity
+            onPress={() => {
+              setReject(true);
+            }}
+            activeOpacity={0.4}
+            style={styles.btn_submit}>
             <Text style={styles.btn_submit_text}>Xác nhận trả</Text>
           </TouchableOpacity>
         </View>
@@ -303,5 +385,70 @@ const styles = StyleSheet.create({
     height: 500,
     backgroundColor: '#fff',
     borderRadius: 5,
+  },
+  note: {
+    width: '95%',
+    marginTop: 15,
+  },
+  note_title: {
+    marginBottom: 3,
+  },
+  note_title_text: {
+    color: 'red',
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  button_wrapper: {
+    width: '100%',
+    flexDirection: 'row',
+    marginTop: 25,
+    paddingBottom: 15,
+    justifyContent: 'space-evenly',
+  },
+  modal_1: {
+    width: 380,
+    backgroundColor: '#fff',
+    borderRadius: 5,
+    justifyContent: 'center',
+    borderRadius: 3,
+  },
+  modal_header: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 40,
+    backgroundColor: 'red',
+    borderRadius: 3,
+  },
+  modal_body: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  modal_content: {
+    height: 100,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 20,
+  },
+  button: {
+    width: '45%',
+    height: 40,
+    borderWidth: 1,
+    borderColor: '#106dc9',
+    borderRadius: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  button_text: {
+    color: '#106dc9',
+  },
+  cancel: {
+    borderColor: '#c4141c',
+  },
+  cancel1: {
+    width: '85%',
+    borderColor: '#c4141c',
+  },
+  cancel_text: {
+    color: '#c4141c',
   },
 });

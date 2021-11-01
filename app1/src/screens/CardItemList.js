@@ -11,14 +11,17 @@ import {
   TouchableOpacity,
   Modal,
   TextInput,
+  Image,
 } from 'react-native';
 import {data} from '../models/data';
 import {brand} from '../models/brand';
 import {products} from '../models/products';
 import Card from '../components/Card';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {priceSelection} from '../models/priceSelection';
 import CalendarsScreen from './Calendar';
+import Feather from 'react-native-vector-icons/Feather';
 
 export default function CardItemList({navigation, route}) {
   const category = route.params.category;
@@ -30,6 +33,8 @@ export default function CardItemList({navigation, route}) {
         itemData={item}
         onPress={() => navigation.navigate('CardItemDetail', {itemData: item})}
         navigation={navigation}
+        getItemData={getItemData}
+        openPopup={openPopup}
       />
     );
   };
@@ -37,6 +42,21 @@ export default function CardItemList({navigation, route}) {
   const [modalVisible, setModalVisible] = useState(false);
   const [calendarVisible, setCalendarVisible] = useState(false);
   const [isSelectedPrice, setIsSelectedPrice] = useState(0);
+  const [itemData, setItemData] = useState({});
+
+  const getItemData = val => {
+    setItemData(val);
+  };
+
+  const [show, setShow] = useState(false);
+  const closePopup = () => {
+    setShow(false);
+  };
+
+  const openPopup = val => {
+    console.log(val);
+    setShow(val);
+  };
 
   return (
     <View style={styles.container}>
@@ -160,6 +180,59 @@ export default function CardItemList({navigation, route}) {
             </View>
           </View>
         </View>
+      </Modal>
+
+      <Modal
+        visible={show}
+        transparent
+        onRequestClose={closePopup}
+        animationType={'slide'}>
+        <TouchableOpacity onPress={closePopup} style={styles.modal_container}>
+          <View style={styles.modal_cart}>
+            <View style={styles.modal_top}>
+              <View style={styles.modal_top_left}>
+                <View style={styles.modal_top_left_icon}>
+                  <Feather name="check-circle" color="green" size={20} />
+                </View>
+                <Text style={styles.modal_top_left_text}>
+                  Sản phẩm đã được thêm vào giỏ
+                </Text>
+              </View>
+              <TouchableOpacity
+                onPress={closePopup}
+                style={styles.modal_top_right}>
+                <FontAwesome name="times" color="#aaa" size={20} />
+              </TouchableOpacity>
+            </View>
+            <View style={styles.modal_body}>
+              <View style={styles.modal_body_image}>
+                <Image
+                  source={itemData?.image}
+                  style={styles.modal_body_image_item}
+                />
+              </View>
+              <View style={styles.modal_body_content}>
+                <Text style={styles.modal_body_content_text}>
+                  {itemData?.title}
+                </Text>
+                <Text style={styles.modal_body_content_text}>
+                  {itemData?.price}
+                </Text>
+              </View>
+            </View>
+            <View style={styles.modal_footer}>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate('Cart');
+                }}
+                style={styles.modal_footer_button}>
+                <Text style={styles.modal_footer_button_item}>
+                  Xem giỏ hàng
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </TouchableOpacity>
       </Modal>
 
       <View style={styles.header}>
@@ -376,5 +449,80 @@ const styles = StyleSheet.create({
     height: 500,
     backgroundColor: '#fff',
     borderRadius: 5,
+  },
+  modal_container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    backgroundColor: '#00000099',
+  },
+  modal_cart: {
+    width: '100%',
+    height: 260,
+    backgroundColor: '#fff',
+    borderTopRightRadius: 15,
+    borderTopLeftRadius: 15,
+    alignItems: 'center',
+  },
+  modal_top: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    paddingVertical: 15,
+  },
+  modal_top_left: {
+    width: '70%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  modal_top_left_icon: {
+    marginRight: 15,
+  },
+  modal_top_left_text: {
+    fontSize: 16,
+    color: 'green',
+    fontWeight: '600',
+  },
+  modal_body: {
+    flexDirection: 'row',
+    width: '90%',
+    marginTop: 25,
+  },
+  modal_body_image: {
+    width: 90,
+    height: 90,
+  },
+  modal_body_image_item: {
+    width: '100%',
+    height: '100%',
+  },
+  modal_body_content: {
+    width: '72%',
+    marginLeft: 20,
+  },
+  modal_body_content_text: {
+    fontSize: 15,
+    marginBottom: 5,
+  },
+  modal_footer: {
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 30,
+  },
+  modal_footer_button: {
+    width: '90%',
+    height: 42,
+    backgroundColor: '#db231d',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 5,
+  },
+  modal_footer_button_item: {
+    fontSize: 16,
+    color: '#fff',
+    fontWeight: '600',
   },
 });
