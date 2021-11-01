@@ -179,7 +179,38 @@ export default function RentalScreen1({navigation, route}) {
                 </View>
                 <View style={styles.product_item}>
                   <Text style={styles.name}>{itemData.title}</Text>
+                  <Text
+                    style={{
+                      marginBottom: 3,
+                    }}>
+                    Số lượng: 2
+                  </Text>
                   <Text style={styles.price}>{itemData.price}</Text>
+                  {/* <View>
+                    <View style={styles.control_quantity}>
+                      <Text style={styles.btn_quantity}>-</Text>
+                      <Text style={styles.quantity_text}>8</Text>
+                      <Text style={styles.btn_quantity}>+</Text>
+                    </View>
+                  </View> */}
+                </View>
+              </View>
+              <View style={styles.product}>
+                <View style={styles.image_wrapper}>
+                  <Image
+                    style={styles.image}
+                    source={require('../assets/images/3.jpg')}
+                  />
+                </View>
+                <View style={styles.product_item}>
+                  <Text style={styles.name}>Lenovo 15.6" IdeaPad 5</Text>
+                  <Text
+                    style={{
+                      marginBottom: 3,
+                    }}>
+                    Số lượng: 2
+                  </Text>
+                  <Text style={styles.price}>90.000 đ/ngày</Text>
                   {/* <View>
                     <View style={styles.control_quantity}>
                       <Text style={styles.btn_quantity}>-</Text>
@@ -461,6 +492,7 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
+    marginBottom: 15,
   },
   product_item: {
     width: '65%',

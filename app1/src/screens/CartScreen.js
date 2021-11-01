@@ -102,7 +102,7 @@ export default function CartScreen({navigation, route}) {
             </Text>
             <View style={styles.control_quantity}>
               <Text style={styles.btn_quantity}>-</Text>
-              <Text style={styles.quantity_text}>8</Text>
+              <Text style={styles.quantity_text}>2</Text>
               <Text style={styles.btn_quantity}>+</Text>
             </View>
           </View>
@@ -137,7 +137,7 @@ export default function CartScreen({navigation, route}) {
             </Text>
             <View style={styles.control_quantity}>
               <Text style={styles.btn_quantity}>-</Text>
-              <Text style={styles.quantity_text}>1</Text>
+              <Text style={styles.quantity_text}>2</Text>
               <Text style={styles.btn_quantity}>+</Text>
             </View>
           </View>
