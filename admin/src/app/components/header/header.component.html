@@ -1,0 +1,29 @@
+<div class="header">
+  <div class="logo">
+    <img class="logo-img" src="assets/images/logo.png" alt="" />
+    <p class="logo-text">Dich vu thue Laptop</p>
+  </div>
+  <div class="search">
+    <i class="pi pi-search search-icon"></i>
+    <input class="search-input" placeholder="Tìm kiếm" />
+  </div>
+  <div class="setting"></div>
+</div>
+
+<p-sidebar [(visible)]="visibleSidebar1" [baseZIndex]="10000">
+  <ul class="menu">
+    <li class="menu-item"><a href="">Products</a></li>
+    <li class="menu-item"><a href="">Users</a></li>
+    <li class="menu-item"><a href="">Orders</a></li>
+  </ul>
+</p-sidebar>
+
+<div class="sidebar">
+  <p-button
+    type="button"
+    class="p-mr-2"
+    (click)="visibleSidebar1 = true"
+    icon="pi pi-bars"
+  ></p-button>
+  <p class="sidebar-text">Sidebar menu</p>
+</div>
